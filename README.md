@@ -4,7 +4,7 @@ heroImage: /HLAE.png
 heroText: HLAE中文WiKi
 tagline: HLAE is a tool to enrich Source (mainly CS:GO) engine based movie making.
 actionText: 开始阅读 →
-actionLink: /pages/folder1/test1.md
+actionLink: /pages/main/index.md
 # features:
 # - title: 没想好放啥
 #   details: HLAE is a tool to enrich Source (mainly CS:GO) engine based movie making.
