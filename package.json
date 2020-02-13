@@ -1,0 +1,14 @@
+{
+  "name": "hlae_wiki",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vuepress dev hlae_wiki",         
+    "build": "vuepress build hlae_wiki"      
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
