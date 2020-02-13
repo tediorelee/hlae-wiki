@@ -22,6 +22,8 @@ module.exports = {
   themeConfig: {
     logo: '/HLAE.png', //网页顶端导航栏左上角的图标
 
+    lastUpdated: '上次更新',
+
     //顶部导航栏
     nav: [
       //格式一：直接跳转，'/'为不添加路由，跳转至首页
@@ -34,20 +36,7 @@ module.exports = {
         text: '论坛',
         link: 'http://175.24.0.251:4567/'
       },
-
-      //格式二：添加下拉菜单，link指向的文件路径
-      // {
-      //     text: '分类',  //默认显示        
-      //     ariaLabel: '分类',   //用于识别的label
-      //     items: [
-      //         { text: '文章', link: '/pages/folder1/test1.md' },  
-      //         //点击标签会跳转至link的markdown文件生成的页面
-      //         { text: '琐碎', link: '/pages/folder2/test4.md' },
-      //     ]
-      // },
-      // { text: '功能演示', link: '/pages/folder1/test3.md' },
-
-      //格式三：跳转至外部网页，需http/https前缀
+      
       {
         text: 'Github',
         link: 'https://github.com/tediorelee/hlae-wiki'
