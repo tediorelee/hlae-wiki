@@ -20,6 +20,11 @@ module.exports = {
 
   //下面涉及到的md文件和其他文件的路径下一步再详细解释
   themeConfig: {
+
+    smoothScroll: true,
+
+    // sidebar: 'auto',
+
     logo: '/HLAE.png', //网页顶端导航栏左上角的图标
 
     lastUpdated: '上次更新',
@@ -29,14 +34,14 @@ module.exports = {
       //格式一：直接跳转，'/'为不添加路由，跳转至首页
       {
         text: '首页',
-        link: '/'
+        link: '/pages/index'
       },
 
       {
         text: '论坛',
         link: 'http://175.24.0.251:4567/'
       },
-      
+
       {
         text: 'Github',
         link: 'https://github.com/tediorelee/hlae-wiki'
@@ -45,17 +50,30 @@ module.exports = {
 
     //侧边导航栏：会根据当前的文件路径是否匹配侧边栏数据，自动显示/隐藏
     sidebar: {
-      '/pages/main/': [{
-        title: 'HLAE中文WiKi', // 一级菜单名称
-        collapsable: false, // false为默认展开菜单, 默认值true是折叠,
-        sidebarDepth: 1, //  设置侧边导航自动提取markdown文件标题的层级，默认1为h2层级
-        children: [
-          ['index.md', '子菜单1'], //菜单名称为'子菜单1'，跳转至/pages/folder1/test1.md
-          ['page1.md', '子菜单2']
-        ]
-      }],
-
-      //...可添加多个不同的侧边栏，不同页面会根据路径显示不同的侧边栏
-    }
+      '/pages/':[
+          {
+              title: '简介',   // 必要的
+              collapsable: false, // 可选的, 默认值是 true,
+              sidebarDepth: 1,    // 可选的, 默认值是 1
+              children: [
+                  ['home.md', 'Home']
+              ]
+          },
+          {
+              title: 'Command',
+              collapsable: false, // 可选的, 默认值是 true,
+              children: [
+                  ['page2.md', '子菜单1']
+              ]
+          },
+          {
+              title: 'Tutorial',
+              collapsable: false, // 可选的, 默认值是 true,
+              children: [
+                  ['Tutorials.md', '简介']
+              ]
+          }
+      ],
+  }
   }
 }
