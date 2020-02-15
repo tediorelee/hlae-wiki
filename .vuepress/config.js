@@ -34,7 +34,7 @@ module.exports = {
       //格式一：直接跳转，'/'为不添加路由，跳转至首页
       {
         text: '首页',
-        link: '/pages/index'
+        link: '/'
       },
 
       {
