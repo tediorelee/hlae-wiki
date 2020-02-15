@@ -56,7 +56,7 @@ module.exports = {
               collapsable: false, // 可选的, 默认值是 true,
               sidebarDepth: 1,    // 可选的, 默认值是 1
               children: [
-                  ['home.md', 'Home'],
+                  ['home.md', 'Home(已翻译)'],
                   ['AfxHookSource.md', 'AfxHookSource'],
                   ['AfxHookGoldSrc.md', 'AfxHookGoldSrc']
               ]
@@ -72,7 +72,7 @@ module.exports = {
                   ['Source_mirv_cam.md', 'Source_mirv_cam'],
                   ['Source_mirv_camexport.md', 'Source_mirv_camexport'],
                   ['Source_mirv_camimport.md', 'Source_mirv_camimport'],
-                  ['Source_mirv_campath.md', 'Source_mirv_campath'],
+                  ['Source_mirv_campath.md', 'Source_mirv_campath(已翻译)'],
                   ['Source_mirv_cmd.md', 'Source_mirv_cmd'],
                   ['Source_mirv_cvar_hack.md', 'Source_mirv_cvar_hack'],
                   ['Source_mirv_cvar_unhide_all.md', 'Source_mirv_cvar_unhide_all'],
@@ -90,7 +90,7 @@ module.exports = {
                   ['Source_mirv_streams.md', 'Source_mirv_streams'],
                   ['Source_mirv_time.md', 'Source_mirv_time'],
                   ['Source_mirv_traceentity.md', 'Source_mirv_traceentity'],
-                  ['Source_mirv_voice.md', 'Source_mirv_voice'],
+                  ['Source_mirv_voice.md', 'Source_mirv_voice(已翻译)'],
                   ['Source_mirv_vpanel.md', 'Source_mirv_vpanel'],
               ]
           },

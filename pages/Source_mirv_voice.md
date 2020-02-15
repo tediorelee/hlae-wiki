@@ -1,36 +1,33 @@
-This command supports recording voice audio separately from normal game audio and also blocking specific voice audio.
+这条指令支持从普通游戏音频中分离各种声音、录制音频，同样可以屏蔽特定的声音。
 
-# Supported Games
+# 支持的游戏
 
-Only Counter-Strike: Global Offensive is supported.
+仅支持CSGO。
 
 # mirv_voice block
 
-This command allows blocking voice audio of specific entities / players.
+这条指令可以屏蔽特定物体或玩家的声音
 
-Please enter `mirv_voice block` into console to get access to the built-in help system for further instructions.
+请在控制台中输入`mirv_voice block`来获得进一步的指令帮助说明。
 
 # mirv_voice record
 
-This command allows recording of player voice into separate audio files (one per player / entity using the voice audio).
+这条指令可将玩家语音分离开来，并可录制得到独立的音频文件（每个玩家或物体占用一个音频）。
 
 ## mirv_streams
 
-When recording with [[mirv_streams|Source:mirv_streams]] this command is not required, you can simply set `mirv_streams record voices 1` to enable voice recording upon streams being recorded.
+当使用（见）`mirv_streams`指令录制时并不需要这条指令，可以简单设置`mirv_streams record voices 1`使得通道录制的时候同时录制语音
 
-## Recording voice audio separately of game audio
+## 单独录制玩家语音音频
 
-Enter this into console to suppress voice audio in normal game audio while still being able to record voice separetly:<br />
-`sv_cheats 1; snd_setmixer voip vol 0` (The default vol is 0.7.)
+在控制台中输入以下指令，可在减小游戏音频中的玩家语音的音量，同时能单独录制玩家语音：
 
-## Naming of audio files
+`sv_cheats 1; snd_setmixer voip vol 0` （默认值 0.7 ）
 
-The audio files entity_xxx.wav where xxx is the entity index. The index is equal to the number shown by the `voice_show_mute` console command.
+## 音频文件名
 
-## Further options
+音频文件 `entity_xxx.wav` 中 `xxx` 是物体序号。 这个序号和 `voice_show_mute` 指令显示出的序号一致。
 
-Please enter `mirv_voice record` into console to get access to the built-in help system for further instructions.
+## 更多选项
 
-# See also
-
-[[Source:Commands]]
+请在控制台中输入`mirv_voice record`来获得进一步的指令帮助说明。

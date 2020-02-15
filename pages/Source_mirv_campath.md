@@ -1,118 +1,121 @@
-This command allows to make campaths easily.
+这条指可以让你快速，简单的创建镜头轨迹
 
-# Demo type specific requirements
+# 各类DEMO类型所需要的调整
 
 ## GOTV
 
-None, switch to free camera mode is recommended.
+无, 但建议使用自由视角进行录制。
 
-## POV (in-eye) demos
+## POV (第一人称视角) demos
 
-For POV demos you should switch to thirdperson mode and enable <tt>mirv_input camera</tt> mode as described  here:<br />
-[[mirv_input - Third person camera|Source:mirv_input#third-person-camera]]
+对于POV视角的demo，你应该切换到第三人称模式 然后使用 <tt>mirv_input camera</tt>这条命令，作用如下：
+[[mirv_input - 第三人称摄像机|Source:mirv_input#third-person-camera]]
+*（译者注:这里应该是跳转到mirv_input的wiki下吧）*
 
-# Add camera points to the path
+# 为摄像机添加移动轨迹
 
 <tt>mirv_campath add</tt>
 
-Adds the current time and view to the path. If you happen to exactly hit a time already set in the path, then it will be overwritten.
+以目前的时间和视角作为来源，添加为一个移动轨迹点. 如果你在一个已经设置过轨迹的时间节点上使用此命令添加，那么将会覆盖上一个的轨迹。
 
-Currently you need to add at least 4 points before you can enable the camera path.
+目前你需要至少四个轨迹点才可以正常的调用整个摄像机轨迹。
 
-# Enable the current path
+# 调用目前的摄像机轨迹
 
 <tt>mirv_campath enabled _0|1_</tt>
 
-If you enter 1 the path is enabled (or enter 0 to disable).
+在这里 1 代表启动摄像机轨迹 0 代表关闭。
 
-Currently you need to add at least 4 points before you can enable the camera path.
+目前你需要至少四个轨迹点才可以正常的调用整个摄像机轨迹。
 
-# Draw the current path on screen
+# 在屏幕上显示目前的摄像机轨迹路线图
 
 <tt>mirv_campath draw enabled _**0**|1_</tt>
 
-If you enter <tt>mirv_campath draw enabled 1</tt> the path will be drawn on screen, assuming that your modification is supported.
+如果你输入<tt>mirv_campath draw enabled 1</tt> 你的摄像机轨迹图将会被显示出来，前提是你所做的设置没有问题。
 
-## Change the visualization of the campath keyframes
-<tt>mirv_campath draw keyAxis 0|1</tt> (default 0)
+## 更改轨迹点显示的图形样式
+<tt>mirv_campath draw keyAxis 0|1</tt> (默认 0)
 
-<tt>mirv_campath draw keyCam 0|1</tt> (default 1)
+<tt>mirv_campath draw keyCam 0|1</tt> (默认 1)
 
-## Supported modifications for mirv_campath draw
+## mirv_campath draw所支持的Mods
 
 * Counter-Strike: Global Offensice
-* Modifications similar to the Source SDK 2013, i.e. Counter-Strike: Source
+* 类似于 Source SDK 2013的Mods, 例. Counter-Strike: Source
 
-## System requirements
+## 系统需求
 
-* PixelShader version 2.0 must be supported
-* VertexShader version 2.0 must be supported
+* PixelShader version 2.0 可被支持
+* VertexShader version 2.0 可被支持
 
-# Clearing all points in the path
+# 清除所有的摄像机轨迹
 
 <zz>mirv_campath clear</tt>
 
-# Printing points in the path
+# 查看摄像机轨迹里的摄像机点位信息
 
 <tt>mirv_campath print</tt>
 
-Prints all points in the path (if point has been already passed, id, time, position and rotation) and current time.
+将会显示所有轨迹里的摄像机点位 (点位是否已经经过, 序号, 时间, 位置和转向)和目前时间位置。
 
-# Removing a point
+# 删除一个点位
 
 <tt>mirv_campath remove _&lt;id&gt;_</tt>
 
-Removes point with the number _&lt;id&gt;_, which you can get from <tt>mirv_campath print</tt> (See [[Printing points in the path|Source:mirv_campath#Printing points in the path]] below).
+使用 _&lt;id&gt;_,来删除点位，删除需要的点位id你可以在 <tt>mirv_campath print</tt> 里找到(详情 [[ 查看摄像机轨迹里的摄像机点位信息|Source:mirv_campath#Printing points in the path]] below).
 
-# Loading a path
+# 载入一个轨迹
 
-<tt>mirv_campath load _&lt;filename&gt;_</tt>
+<tt>mirv_campath load _&lt;文件名&gt;_</tt>
 
-Loads a campath from file _&lt;filename&gt;_ which has to be in the XML format like saved from <tt>mirv_campath save</tt> (See [[Saving a path|Source:mirv_campath#Saving a path]] above.). For the format have a look at the file and the comments in it from a saved file.
+从文件里载入一个轨迹 _&lt;filename&gt;_ 文件必须是XML文件，比如通过<tt>mirv_campath save</tt>保存的文件 (详见 [[保存轨迹|Source:mirv_campath#Saving a path]] above.). 格式的相关要求，请在查看保存文件里的注释。
 
-If no file path is specified, the file we be loaded from where the game .exe file is located.
+如果你没有定义路径，那么将会默认在(game).exe所在的文件夹下寻找并加载。
 
-Currently the path needs to be enabled again after loading it:
+目前 载入后的轨迹需要再次手动启动一下:
 
 <tt>mirv_campath enabled 1</tt>
 
-# Saving a path
+# 保存轨迹
 
-<tt>mirv_campath save _&lt;filename&gt;_</tt>
+<tt>mirv_campath save _&lt;文件名&gt;_</tt>
 
-Saves a campath to file _&lt;filename&gt;_ in XML format.
+将轨迹保存成一个 _&lt;filename&gt;_. XML格式的文件。
 
-If no file path is specified, the file we be saved to where the game .exe file is located.
+如果你没有定义路径，那么将会默认在(game).exe所在的文件夹下保存。
 
-# Path editing tools
+# 轨迹编辑工具
 
-## Setting the path to start at a new time
+## 修改轨迹点的起始时间位置
 
 <tt>mirv_campath edit start</tt>
 
-Offsets the whole current path to start at the current time.
+偏移整个目前使用的轨迹 到现在的时间位置。
 
-## Scaling the duration of the path
+## 调整一个轨迹的时间长度
 
 <tt>mirv_campath edit duration _&lt;dValue&gt;_</tt>
 
-Sets a new duration for the path in seconds using the floating point value _&lt;dValue&gt;_. In the unlikely event that due to rescaling several points land on the same time, the value of the last point will be used (no interpolation is done).
+要调整一个轨迹的时常，你要在_&lt;dValue&gt;_. 使用浮点数值调整，以秒作为单位， 少数情况下，有可能会因为调整，一些点位会叠加到一个时间点上，会有可能使用最后一个点位的数值(无差值).
 
-## Further editing tools
 
-There are further editing tools available (i.e. edit position / fov / angles of all or selected keyframes or rotate that path).
+## 其他的轨迹编辑工具
 
-To get a list and help for those enter <tt>mirv_campath edit</tt> into the console.
+还有其他的许多工具可用 (比如. 编辑 位置 / 视野 / 角度，选择一个点位或是修改整个轨迹).
 
-# Keyframe selection tools
+你可以在控制台输入<tt>mirv_campath edit</tt>来获取这些工具的帮助信息 。
 
-Keyframes can be selected with <tt>mirv_campath select</tt>
+# 关键帧选择工具
 
-Please enter it without further options in the console to list all available sub-commands and a few handy examples in the console.
+关键帧可以使用<tt>mirv_campath select</tt>来选择
 
-When keyframes are selected, then the <tt>mirv_campath clear</tt> and <tt>mirv_campath edit</tt> functions will be only applied to the selected keyframes. If none are selected they are applied to all keyframes. (So after clearing the selected keyframes no keyframes will be selected and thus you probably don't want to clear them again, since that would clear the whole path then).
+你可以在不加入任何附加属性的时候输入这条指令，这样它将会显示一些可用的子命令，和一些实例来作为参考。
 
-Selected keyframes / path parts will be shown in inverted colour if <tt>mirv_campath draw</tt> is enabled.
+当关键帧被选择后，  <tt>mirv_campath clear</tt> 和 <tt>mirv_campath edit</tt> 功能将只会在你选择的关键帧上起作用。 如果没有选择任何关键帧，那么它们将依旧会对所有点位起效 
+(所以当你删除被选择的关键帧后，届时将无关键帧被选择，所以你最好不要再去执行mirv_campath clear 因为它将会删除你轨迹里所有的点位).
+
+选择的关键帧 / 路径点 将会以反色显示， 前提是 <tt>mirv_campath draw</tt> 已经打开.
 
 # See also
 
