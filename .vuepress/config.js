@@ -56,21 +56,28 @@ module.exports = {
               collapsable: false, // 可选的, 默认值是 true,
               sidebarDepth: 1,    // 可选的, 默认值是 1
               children: [
-                  ['home.md', 'Home']
+                  ['home.md', 'Home'],
+                  ['AfxHookSource.md', 'AfxHookSource'],
+                  ['AfxHookGoldSrc.md', 'AfxHookGoldSrc']
               ]
           },
           {
               title: 'Command',
               collapsable: false, // 可选的, 默认值是 true,
               children: [
-                  ['page2.md', '子菜单1']
+                  ['Source_afx_interop.md', 'Source_afx_interop'],
+                  ['Source_mirv_aim.md', 'Source_mirv_aim'],
+                  ['Source_mirv_agr.md', 'Source_mirv_agr'],
+                  ['Source_mirv_calcs.md', 'Source_mirv_calcs'],
+                  ['Source_mirv_cam.md', 'Source_mirv_cam'],
+                  ['Source_mirv_camexport.md', 'Source_mirv_camexport'],
               ]
           },
           {
               title: 'Tutorial',
               collapsable: false, // 可选的, 默认值是 true,
               children: [
-                  ['Tutorials.md', '简介']
+                  ['Tutorials.md', '相关教程']
               ]
           }
       ],
