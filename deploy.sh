@@ -17,4 +17,4 @@ git commit -m 'deploy'
 
 git push
 
-cd -
+# cd -
