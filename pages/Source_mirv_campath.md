@@ -9,7 +9,7 @@
 ## POV (第一人称视角) demos
 
 对于POV视角的demo，你应该切换到第三人称模式 然后使用 <tt>mirv_input camera</tt>这条命令，作用如下：
-[[mirv_input - 第三人称摄像机|Source:mirv_input#third-person-camera]]
+[mirv_input - 第三人称摄像机|Source:mirv_input#third-person-camera]
 *（译者注:这里应该是跳转到mirv_input的wiki下吧）*
 
 # 为摄像机添加移动轨迹
@@ -63,15 +63,15 @@
 
 <tt>mirv_campath remove _&lt;id&gt;_</tt>
 
-使用 _&lt;id&gt;_,来删除点位，删除需要的点位id你可以在 <tt>mirv_campath print</tt> 里找到(详情 [[ 查看摄像机轨迹里的摄像机点位信息|Source:mirv_campath#Printing points in the path]] below).
+使用 _&lt;id&gt;_,来删除点位，删除需要的点位(序号)id你可以在 <tt>mirv_campath print</tt> 里找到(详情 [[ 查看摄像机轨迹里的摄像机点位信息|Source:mirv_campath#Printing points in the path]] below).
 
 # 载入一个轨迹
 
 <tt>mirv_campath load _&lt;文件名&gt;_</tt>
 
-从文件里载入一个轨迹 _&lt;filename&gt;_ 文件必须是XML文件，比如通过<tt>mirv_campath save</tt>保存的文件 (详见 [[保存轨迹|Source:mirv_campath#Saving a path]] above.). 格式的相关要求，请在查看保存文件里的注释。
+从文件里载入一个轨迹 _&lt;文件名&gt;_ 文件必须是XML文件，比如通过<tt>mirv_campath save</tt>保存的文件 (详见 [[保存轨迹|Source:mirv_campath#Saving a path]] above.). 格式的相关要求，请查看保存文件里的注释。
 
-如果你没有定义路径，那么将会默认在(game).exe所在的文件夹下寻找并加载。
+如果你没有定义路径，那么HLAE将会默认在(game).exe所在的文件夹下寻找并加载。
 
 目前 载入后的轨迹需要再次手动启动一下:
 
@@ -83,7 +83,7 @@
 
 将轨迹保存成一个 _&lt;filename&gt;_. XML格式的文件。
 
-如果你没有定义路径，那么将会默认在(game).exe所在的文件夹下保存。
+如果你没有定义路径，那么HLAE将会默认在(game).exe所在的文件夹下保存。
 
 # 轨迹编辑工具
 
@@ -97,7 +97,7 @@
 
 <tt>mirv_campath edit duration _&lt;dValue&gt;_</tt>
 
-要调整一个轨迹的时常，你要在_&lt;dValue&gt;_. 使用浮点数值调整，以秒作为单位， 少数情况下，有可能会因为调整，一些点位会叠加到一个时间点上，会有可能使用最后一个点位的数值(无差值).
+要调整一个轨迹的时长，你要在_&lt;dValue&gt;_. 里使用浮点数值调整 例:1.000，以秒作为单位， 少数情况下，有可能会因为调整，一些点位会叠加到一个时间点上，会有可能使用最后一个点位的数值(无差值).
 
 
 ## 其他的轨迹编辑工具
@@ -116,6 +116,8 @@
 (所以当你删除被选择的关键帧后，届时将无关键帧被选择，所以你最好不要再去执行mirv_campath clear 因为它将会删除你轨迹里所有的点位).
 
 选择的关键帧 / 路径点 将会以反色显示， 前提是 <tt>mirv_campath draw</tt> 已经打开.
+
+_本篇译者Tuc_
 
 # See also
 

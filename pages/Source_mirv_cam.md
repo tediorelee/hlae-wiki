@@ -1,15 +1,15 @@
-This command allows you to control the camera in various ways, as well as interacting with other HLAE commands, such as mirv_calcs.
-# Supported Games
+该命令允许你以多种方式控制镜头, 且可与其他HLAE命令交互使用, 例如 mirv_calcs.
+# 支持游戏
 Counter-Strike: Global Offensive
 
-# Sub-Commands
-* `mirv_cam source [...]` - Control camera location.
-* `mirv_cam fov [...]` - Control camera fov.
-* `mirv_cam offset [...]` - Control camera offset (in local space).
+# 子命令
+* `mirv_cam source [...]` - 控制镜头位置.
+* `mirv_cam fov [...]` - 控制镜头fov(视场角).
+* `mirv_cam offset [...]` - 控制相机偏移 (以一定间隔排序).
 
-Typing any of those in the console will give you more options and often tells you what they do.
+在控制台中输入任意命令都会生成其他命令与注释.
 
-# See also
+# 参考
 
-- [[Source:Commands]]
-- [[Source:Order of camera overrides]]
+- [Source:Commands](https://github.com/advancedfx/advancedfx/wiki/Source%3ACommands)
+- [Source:Order of camera overrides](https://github.com/advancedfx/advancedfx/wiki/Source%3AOrder-of-camera-overrides)

@@ -67,27 +67,28 @@ module.exports = {
               children: [
                   ['Source_afx_interop.md', 'Source_afx_interop'],
                   ['Source_mirv_aim.md', 'Source_mirv_aim'],
-                  ['Source_mirv_agr.md', 'Source_mirv_agr'],
-                  ['Source_mirv_calcs.md', 'Source_mirv_calcs'],
-                  ['Source_mirv_cam.md', 'Source_mirv_cam'],
+                  ['Source_mirv_agr.md', 'Source_mirv_agr(已翻译)'],
+                  ['Source_mirv_calcs.md', 'Source_mirv_calcs(已翻译)'],
+                  ['Source_mirv_cam.md', 'Source_mirv_cam(已翻译)'],
                   ['Source_mirv_camexport.md', 'Source_mirv_camexport'],
                   ['Source_mirv_camimport.md', 'Source_mirv_camimport'],
                   ['Source_mirv_campath.md', 'Source_mirv_campath(已翻译)'],
                   ['Source_mirv_cmd.md', 'Source_mirv_cmd'],
                   ['Source_mirv_cvar_hack.md', 'Source_mirv_cvar_hack'],
                   ['Source_mirv_cvar_unhide_all.md', 'Source_mirv_cvar_unhide_all'],
-                  ['Source_mirv_deathmsg.md', 'Source_mirv_deathmsg'],
+                  ['Source_mirv_deathmsg.md', 'Source_mirv_deathmsg(已翻译)'],
+                  ['Source_mirv_exec.md', 'Source_mirv_exec(已翻译)'],
                   ['Source_mirv_fix.md', 'Source_mirv_fix'],
                   ['Source_mirv_fov.md', 'Source_mirv_fov'],
                   ['Source_mirv_gameoverlay.md', 'Source_mirv_gameoverlay'],
-                  ['Source_mirv_input.md', 'Source_mirv_input'],
+                  ['Source_mirv_input.md', 'Source_mirv_input(已翻译)'],
                   ['Source_mirv_listentities.md', 'Source_mirv_listentities'],
                   ['Source_mirv_loadlibrary.md', 'Source_mirv_loadlibrary'],
                   ['Source_mirv_replace_name.md', 'Source_mirv_replace_name'],
                   ['Source_mirv_skip.md', 'Source_mirv_skip'],
                   ['Source_mirv_snd_filter.md', 'Source_mirv_snd_filter'],
                   ['Source_mirv_snd_timescale.md', 'Source_mirv_snd_timescale'],
-                  ['Source_mirv_streams.md', 'Source_mirv_streams'],
+                  ['Source_mirv_streams.md', 'Source_mirv_streams(已翻译)'],
                   ['Source_mirv_time.md', 'Source_mirv_time'],
                   ['Source_mirv_traceentity.md', 'Source_mirv_traceentity'],
                   ['Source_mirv_voice.md', 'Source_mirv_voice(已翻译)'],
@@ -99,6 +100,13 @@ module.exports = {
               collapsable: false, // 可选的, 默认值是 true,
               children: [
                   ['Tutorials.md', '相关教程']
+              ]
+          },
+          {
+              title: '翻译人员',
+              collapsable: false, // 可选的, 默认值是 true,
+              children: [
+                  ['contributer.md', '翻译人员名单']
               ]
           }
       ],
