@@ -1,65 +1,68 @@
-# Subcommands
+# 子命令
 
 ## <tt>mirv_input camera</tt>
 
-Enables the camera input mode.
+启动外挂摄像机模式。
 
-* Overrides the game's camera.
-* The camera mode input is suspended as long as the console is open.
-* Camera mode supersedes <tt>[[mirv_campath|Source:mirv_campath]]</tt> .
-* For sensitivity control see <tt>mirv_input cfg</tt> below.
+* 它将会覆盖游戏原有的摄像机。
+* 控制台窗口打开时 外挂摄像机 操作将会被停用，你需要关闭控制台才可以正常使用。
+* 外挂摄像机以外的其他代替选择 <tt>[[mirv_campath|Source:mirv_campath]]</tt> .
+* 灵敏度控制在 <tt>mirv_input cfg</tt> 里可以找到。
 
-Currently the key / mouse bindings are hard-coded as follows:
+目前的键位 / 鼠标移动操作方法如下 :
 
-* **End input mode**: [ESC]
-* **Ignore and pass through next key**: [CTRL]
-* **Reset view and speed**: [HOME],[NUMPAD 5]
-* **Move forward**: [W],[NUMPAD 8]
-* **Move backward**: [S], [NUMPAD 2]
-* **Move left**: [A], [NUMPAD 4]
-* **Move right**: [D], [NUMPAD 6]
-* **Move up**: [R], [NUMPAD 9]
-* **Move down**: [F], [NUMPAD 3]
-* **Zoom in** (decrease FOV): [PAGE UP], [NUMPAD 7]
-* **Zoom out** (increase FOV): [PAGE DOWN], [NUMPAD 1]
-* **Roll left**: [Z], [NUMPAD 0]
-* **Roll right**: [X], [NUMPAD . (decimal)]
-* **Look down**: [DOWN ARROW], move mouse backward
-* **Look up**: [UP ARROW], move mouse forward
-* **Look left**: [LEFT ARROW], move mouse left
-* **Look right**: [RIGHT ARROW], move mouse right
-* **Increase overall speed** (double): <tt>+</tt>
-* **Decrease overall speed** (half): <tt>-</tt>
+* **退出外挂摄像机**: [ESC]
+* **无效键位 将会直接传递**: [CTRL]
+* **重置速度和视角**: [HOME],[NUMPAD 5]
+* **向前移动**: [W],[NUMPAD 8]
+* **向后移动**: [S], [NUMPAD 2]
+* **向左移动**: [A], [NUMPAD 4]
+* **向右移动**: [D], [NUMPAD 6]
+* **向上移动**: [R], [NUMPAD 9]
+* **向下移动**: [F], [NUMPAD 3]
+* **视野拉近** (增加FOV值值): [PAGE UP], [NUMPAD 7]
+* **视野拉远** (减少FOV值): [PAGE DOWN], [NUMPAD 1]
+* **向左横滚**: [Z], [NUMPAD 0]
+* **向右横滚**: [X], [NUMPAD . (decimal)]
+* **向下看**: [DOWN ARROW], 或鼠标往下拉
+* **向上看**: [UP ARROW], 或鼠标向前推
+* **向左看**: [LEFT ARROW], 或鼠标向左移动
+* **向右看**: [RIGHT ARROW], 或鼠标向右移动
+* **增加全局速度** (double): <tt>+</tt>
+* **减少全局速度** (half): <tt>-</tt>
 
-* all keys not mentioned go through unmodified
+* 其他未列出的按键将会直接无损传递。
 
-### Third person camera:
+### 第三人称摄像机:
 
-For GOTV demos you should switch to free camera view and then execute:<br/>
+对于GOTV的demo，你应该切换至自由视角 然后再去执行:<br/>
 <tt>mirv_input camera</tt>
 
-For POV demos we recommend to execute the following commands:<br />
+对于POV的demo，我们建议你执行以下命令:<br />
 <tt>sv_cheats 1</tt><br />
 <tt>thirdperson</tt><br />
 <tt>mirv_input camera</tt>
 
 ## <tt>mirv_input cfg</tt>
 
-Access to input mode configuration.
+调整、设置input模式配置文件
 
-* **<tt>mirv_input cfg msens</tt>** : Get current mouse sensitivity.
-* **<tt>mirv_input cfg msens _&lt;dValue&gt;_</tt>** : Set mouse sensitivity to floating point value _&lt;dValue&gt;_.
-* **<tt>mirv_input cfg ksens</tt>** : Get current keyboard sensitivity.
-* **<tt>mirv_input cfg ksens _&lt;dValue&gt;_</tt>** : Set keyboard sensitivity to floating point value _&lt;dValue&gt;_.
+* **<tt>mirv_input cfg msens</tt>** : 查询目前的鼠标速度
+* **<tt>mirv_input cfg msens _&lt;dValue&gt;_</tt>** : 以浮点值的形式来设置新的鼠标灵敏度 _&lt;dValue&gt;_.
+* **<tt>mirv_input cfg ksens</tt>** : 查询目前的键盘灵敏度
+* **<tt>mirv_input cfg ksens _&lt;dValue&gt;_</tt>** : 以浮点值的形式来设置新的键盘灵敏度 _&lt;dValue&gt;_.
 
-There are many more fine grained options than those listed above, just enter only <tt>mirv_input cfg</tt> into console in order to list them.
+其实还有许多好用的命令,要查看他们，你只需要在控制台输入 <tt>mirv_input cfg</tt> 就可以查看它们。
 
 ## <tt>mirv_input end</tt>
 
-Ends current input mode(s).
+终止目前的input模式
+
+*本篇译者Tuc*
 
 # See also
 
-* [[Source:Commands]]
-* [[mirv_campath|Source:mirv_campath]]
-* [[Source:Order of camera overrides]]
+* [Source:Commands](https://github.com/advancedfx/advancedfx/wiki/Source%3ACommands)
+* [mirv_campath|Source:mirv_campath](https://github.com/advancedfx/advancedfx/wiki/Source%3Amirv_campath)
+* [Source:Order of camera overrides](https://github.com/advancedfx/advancedfx/wiki/Source%3AOrder-of-camera-overrides)
+

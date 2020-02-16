@@ -1,37 +1,37 @@
-This command provides expressions, that can be combined with mirv_cam and mirv_aim to be able to create some unique camera tricks. This system is quite complex and is targetted at advanced users.
+此命令提供的表达式可与与mirv_cam与mirv_aim交互使用,用以创造特定的镜头路径.由于该命令系统复杂,仅面向进阶用户.
 
-# Supported Games
+# 支持游戏
 
-Only Counter-Strike: Global Offensive is supported.
+仅在Counter-Strike: Global Offensive运行.
 
-# Basic Guide
+# 基础指导
 
-These commands are only a handful of combinations you can use.  
+该指令仅有可与少数指令交互.  
 
 `mirv_calcs handle add key <name1> <spectator slot number>`  
-This will determine which entity or player you want to follow. The slot number of the player can be found on the spectator HUD, on top their avatars. You can also use `mirv_calcs handle add index <name> <index number>` where the index number can be found with `mirv_listentities`.
+该命令将选中实体或玩家. 其编号可在界面中的头像上找到. 或使用 `mirv_calcs handle add index <name> <index number>` 指令中的index number可通过以下命令检索 `mirv_listentities`.
 
 `mirv_calcs vecAng add handleAttachment <name2> <name1> <attachment name>`  
-This will allow you to choose which object you want the camera to attach to. The attachment names can be found in .qc files which need to be decompiled from .mdl files that can be found in the game files. If you are too lazy to do that, we have compiled a list of a few useful attachment names, [listed below](https://github.com/advancedfx/advancedfx/wiki/Source%3Amirv_calcs#list-of-attachment-names).  
+该命令允许你将摄像机锁定在选中对象所包含的物品中. 物品对应名称代号可在通过游戏目录中  .mdl文件转译后的 .qc文件中找到.如果您懒得这么做, 我们已经编译了部分常用物品名称代号, [见下表](https://github.com/advancedfx/advancedfx/wiki/Source%3Amirv_calcs#list-of-attachment-names)  
 
 `mirv_calcs vecAng add value <name3> <fX> <fY> <fZ> <rX> <rY> <rZ>`  
-This will determine the positioning and rotation of the camera.  
+调整摄像机的位置与旋转属性.
 
 `mirv_calcs vecAng add offset <name4> <name1> <name3> 1`  
-This command will move the camera relative to the position and rotation of the object you are attached to. 
+此命令将相对于选中的对象调整摄像机的位置和旋转属性. 
 
 `mirv_cam source calcVecAng <name4>`  
- This tells the mirv_cam command to use the `<name4>` as camera position and rotation.  
+将`<name4>` 的位置与旋转属性导入摄像机中.  
 
 `spec_mode 5`  
-Use this if the model is invisible.  
+若模型消失,请使用该命令.  
 
 `mirv_cam source calcVecAngClear`  
-This will disable the camera, for when you want to reset the camera back to default.  
+将取消摄像机,当你想重置摄像机的属性时.  
 
-**Tip:** You can use `mirv_cam offset <fX> <fY> <fZ> <rX> <rY> <rZ>` to adjust the position and rotation all at once rather than editing the vecAng values one by one.  
+小提示:** 您可使用 `mirv_cam offset <fX> <fY> <fZ> <rX> <rY> <rZ>` 一次性调整摄像机的位置与旋转属性以免在vecAng指令中一一调整数值.  
 
-# Example #1: Static Face Camera
+# 演示 #1: 面部固定摄像机
 
 `mirv_calcs handle add key key0 0`  
 
@@ -43,7 +43,7 @@ This will disable the camera, for when you want to reset the camera back to defa
 
 `mirv_cam source calcVecAng ofsKey0`
 
-# Example #2: Static Active Weapon Camera ([Video](https://www.youtube.com/watch?v=WtKC8uz57o8) by Z8)
+# 演示 #2: 武器固定摄像机 ([Video](https://www.youtube.com/watch?v=WtKC8uz57o8) by Z8)
 
 `mirv_calcs handle add index name1 3`  
 
@@ -61,15 +61,15 @@ This will disable the camera, for when you want to reset the camera back to defa
 
 `mirv_cam source calcVecAng name7`
 
-# List of Attachment Names
+# 物品名称代号
 
-You can use these for handleAttachment to let the camera focus on that specific attachment of a model / entity object.
+这些物品名称代号可用于将摄像机固定在选中对象包含的物品上.
 
-## Player model attachments
+## 人物物品
 
-### Body
+### 身体
 * facemask 
-### Equipment
+### 装备
 * c4
 * grenade0
 * grenade1
@@ -77,16 +77,17 @@ You can use these for handleAttachment to let the camera focus on that specific 
 * grenade3
 * grenade4
 * defusekit
-### Weapons
+### 武器
 * knife
 * pistol
 * weapon_hand_L
 * weapon_hand_R 
 
-## Weapon model attachments
+## 武器模型
 
 * muzzle_flash
 
-# Example config
+# 脚本演示
 
-- priusfx_20190125T1132Z.zip: https://drive.google.com/open?id=14frey2ImG5TxnK5q1Ct2mAnH7B_pO7Yh
+- [priusfx_20190125T1132Z.zip](https://drive.google.com/open?id=14frey2ImG5TxnK5q1Ct2mAnH7B_pO7Yh)
+

@@ -1,137 +1,209 @@
-This command accesses the HLAE / AfxHookSource streams system.
+# 支持的游戏
 
-# Supported Games
+仅支持CSGO。
 
-Only Counter-Strike: Global Offensive is supported.
+# 当前的问题
 
-# Current Limitations
-
-* Special materials with special shaders can be problematic (inaccurate)
-* Due to breakage in HLAE replacement shaders with the February 17th 2016 CS:GO update, the streams are much less accurate than they used to be before (meaning on the matte / depths streams as before the big HLAE update smoke won't draw, transparent stuff will be problematic, cables/ropes won't draw and so on).
+* 有特定阴影的特定材料显示不精准。
+* 因为2016年CSGO的更新，HLAE的阴影替换出现了问题，通道比之前不精准得多（意味着物体matte和景深depth通道和HLAE大更新之前一样不会渲染烟雾，线和绳不会被渲染等）
 
 
-# Things you should know
+# 须知
 
-You should only use the default preview slot (meaning only 1 stream in preview), since the multi-stream preview is bugged.
+仅可预览一个通道，多通道预览有BUG。
 
-Streams are created with drawViewModel -1 and drawHud 0 as default for backwards compatiblity. You might want to set the drawHud property to -1 (-1 means use the game default for those two). For examples see below.
+通道创建时默认使用`drawViewModel -1`和`drawHud 0`，你可能想要设置`drawHud -1`（游戏默认设置），见下例。
 
-You will notice that available sub-commands for <tt>mirv_streams edit</tt> are specific to the stream type you are editing. Meaning some streams have different options than others, some have only a few options.
+注意到`mirv_streams edit`的子命令针对于你正在编辑的通道，这意味着不同的通道有不同的选项，有时选项很少。
 
-You should also follow the advice in the [[smoother demos guide|Source:Smoother-Demos]] to reduce jitter/lag in recordings.
+见[smoother demos guide]()的说明来减少录制时的卡顿延迟。
 
-# Built in command help / navigation
+# 内置指令帮助
 
-The manual doesn't cover all the options available through the mirv_streams command. Basically enter the mirv_streams command or it's sub commands to get help for the current (sub-)command. If the help displays a subcommand with <tt>[...]</tt> behind it, then you can enter everything in-front to get more help for that sub-command.
+使用`mirv_streams`指令弹出的提示并不能覆盖所有可用指令选项。
 
-If you mistype anything after mirv_streams, then it will print the most specific (sub-)command help it can find.
+通常用`mirv_streams xxx` 可以获得当前指令或子指令的帮助。如果帮助在一个子命令后显示`[...]`，把`[...]`替换成任何字符即可获得该子命令的帮助。
 
-# Examples
+如果你输入的指令在`mirv_streams`后的部分有误，它会打印出最接近的子指令的帮助提示。
 
-## 1. Adding a depth stream and previewing it and editing it a bit
+# 示例
 
-To add a depth stream named _mydepth_ enter this:<br />
-<tt>mirv_streams add depth mydepth</tt>
+## 1. 添加景深depth通道，预览并简单编辑
 
-Now put the stream into preview:<br />
-<tt>mirv_streams preview mydepth</tt>
+添加一个景深通道并命名为`mydepth`：
 
-You should be able to see the depth stream preview now. 
+```
+mirv_streams add depth mydepth
+```
 
-Now lets edit the maximum depth value of the stream we added, since the default of 1024 is a bit low:<br />
-<tt>mirv_streams edit mydepth depthValMax 4096.0</tt>
+预览该通道：
 
-To check if the value has been set properly enter:<br />
-<tt>mirv_streams edit mydepth depthValMax</tt><br />
-It should display the _current value_.
+```
+mirv_streams preview mydepth
+```
 
-## 2. Adding a normal stream
+现在应该可以看到景深通道的预览效果。
 
-A normal stream is simply a stream that doesn't have much possible settings, you can use it to record the view without special effects.
+接下来为刚才添加的通道设置最大深度值，默认的1024有一些低：
 
-Enter this in console to add a normal stream named _mynormal_:<br />
-<tt>mirv_streams add normal mynormal</tt>
+```
+mirv_streams edit mydepth depthValMax 4096.0
+```
 
-Enter this in console to make the stream you just added draw the HUD when the game draws it:<br />
-<tt>mirv_streams edit mynormal drawHud -1</tt>
+检查深度值是否设置正确，使用如下指令，应该可以显示当前的值：
 
-Preview that stream using:<br />
-<tt>mirv_streams preview mynormal</tt>
+```
+mirv_streams edit mydepth depthValMax
+```
 
-## 3. Adding a matte entity stream and previewing it
+## 2. 添加Normal通道
 
-Enter this in console to add a matteEntity stream named _mymatte_:<br />
-<tt>mirv_streams add matteEntity mymatte</tt>
+normal通道并没有很多设置的参数，可以用它录制没有任何特殊效果的view。
 
-Preview that stream using:<br />
-<tt>mirv_streams preview mymatte</tt>
+添加一个Normal通道并命名为`mynormal`：
 
-The normal stream is if you need to record an additional normal view, it has much less options than other streams.
+```
+mirv_streams add normal mynormal
+```
 
-## 4. Marking streams as do not record or record
+使用如下指令确保在游戏显示HUD的时候`mynormal`通道也能显示HUD。
 
-Enter this in console to mark a stream named _mymatte_ as do not record:<br />
-<tt>mirv_streams edit _mymatte_ record 0</tt><br />
-This will cause the stream to not be recorded when using <tt>mirv_streams record</tt>.
+```
+mirv_streams edit mynormal drawHud -1
+```
 
-If you want to check that the setting has been applied enter:
-<tt>mirv_streams edit _mymatte_ record</tt><br />
-It should display the _current value_.
+预览该通道：
 
-## 5. Stop previewing a stream
+```
+mirv_streams preview mynormal
+```
 
-To stop previewing a stream there are two ways:<br />
-<tt>mirv_streams preview &quot;&quot;</tt> or <tt>mirv_streams previewend</tt>
+normal通道专为单独录制额外的常规视角，它比其它通道的选项少很多。
 
-## 6. A more complete example
+## 3. 添加人物通道并预览
 
-First lets remove the streams from the previous examples (you can skip that if you didn't add them):<br >
-<tt>mirv_streams remove mydepth</tt><br />
-<tt>mirv_streams remove mymatte</tt><br />
-<tt>mirv_streams remove mynormal</tt>
+添加一个matteEntity通道并命名为`mymatte`：
 
-Now let's add a few streams named _ent_ (contains the entities and the world is masked), _wrld_ (contains everything masked or missing in _ent_), _dent_ (depth for _ent_) and _dwrld_ (depth for _wrld_):<br />
-<tt>mirv_streams add matteEntity ent</tt><br />
-<tt>mirv_streams add matteWorld wrld</tt><br />
-<tt>mirv_streams add depthEntity dent</tt><br />
-<tt>mirv_streams edit dent depthValMax 4096</tt><br />
-<tt>mirv_streams add depthWorld dwrld</tt><br />
-<tt>mirv_streams edit dwrld depthValMax 4096</tt>
+```
+mirv_streams add matteEntity mymatte
+```
 
-Now for extra fun (let's pretend we hate weapon stickers), let's add a stream without weapon stickers, that we put into preview but don't record:<br />
-<tt>mirv_streams add baseFx nostickers</tt><br />
-<tt>mirv_streams edit nostickers stickerAction invisible</tt><br />
-<tt>mirv_streams edit nostickers record 0</tt><br />
-<tt>mirv_streams preview nostickers</tt>
+预览该通道：
 
-### Recording example:
+```
+mirv_streams preview mymatte
+```
 
-Here is a complete example how to record the streams set up above:
+## 4. 设置通道录制与否
 
-First let's set the record name to _test_rec_ (default is _untitled_):<br />
-<tt>mirv_streams record name test_rec</tt>
+不妨以`mymatte`通道为例，使用如下指令开启或关闭该通道的录制，1开启，0关闭：
 
-**Hint:** Alternatively you can set a full folderpath i.e. <tt>mirv_streams record name &quot;d:\myFolderPath&quot;</tt>!
+```
+mirv_streams edit mymatte record 0
+```
 
-Now let's record:<br />
-<tt>host_framerate 60; host_timescale 0; [[mirv_snd_timescale|Source:mirv_snd_timescale]] 1; mirv_streams record start</tt>
+检查通道当前录制的状态：
 
-... record a bit ...
+```
+mirv_streams edit mymatte record
+```
 
-Now stop the recording:<br />
-<tt>mirv_streams record end; host_framerate 0</tt>
+## 5. 停止预览
 
-If everything went well, you should now have the recorded image files and audio file in the <tt>Counter-Strike Global Offensive\test_rec</tt> folder (except if you set another folder path in the steps above, then they will be there).
+停止预览有两种方式：
 
-## Adding a depth stream with up to 23bit precision (OpenEXR):
+```
+mirv_streams preview ""
+```
 
-_The actual accuracy is about 23 bits maximum. Depending on your graphics card and drivers the accuracy can be much lower, however with modern cards and drivers you should be close to the 23 bit maximum accuracy._
+```
+mirv_streams previewend
+```
 
-Then depth value of the OpenEXR files will be between the stream's depthVal and depthValMax. If it's not exactly one of these values, then the depth value can be assumed to be the actual distance in 12/16 = 0.75 inch from the camera. If the value is the minimum value (depthVal), then the distance is depthVal or less. If the value is the maximum value (depthValMax), the the distance is depthValMax or above.
+## 6. 更完整的示例
 
-There are two methods to get high precision depth / OpenEXR support:
+## 5. 停止预览通道
 
-### OpenEXR depth stream - The latest way
+停止预览有两种方式：
+
+```
+<tt>mirv_streams preview &quot;&quot;</tt> 
+```
+
+```
+mirv_streams previewend
+```
+
+## 6. 一个更完整的例子
+
+## 6. 更完整的例子
+
+如果按照刚才的说明添加了三个通道，请先移除这三个通道。
+
+```
+mirv_streams remove mydepth
+mirv_streams remove mymatte
+mirv_streams remove mynormal
+```
+
+下面添加人物通道命名为`ent`，世界通道命名为`wrld`，人物景深通道命名为`dent`，世界景深通道命名为`dwrld`。
+
+```
+mirv_streams add matteEntity ent
+mirv_streams add matteWorld wrld
+mirv_streams add depthEntity dent
+mirv_streams edit dent depthValMax 4096
+mirv_streams add depthWorld dwrld
+mirv_streams edit dwrld depthValMax 4096
+```
+
+设置预览无贴纸通道和预览，暂不开启录制：
+
+```
+mirv_streams add baseFx nostickers
+mirv_streams edit nostickers stickerAction invisible
+mirv_streams edit nostickers record 0
+mirv_streams preview nostickers
+```
+
+### 录制案例：
+
+不妨设置录制文件夹名为`test_rec`（默认为`untitled`），注意此处是相对路径，得到的图片序列和音频在`Counter-Strike Global Offensive\test_rec`文件夹下。
+
+```
+mirv_streams record name test_rec
+```
+
+也可以可以设置绝对路径：
+
+```
+mirv_streams record name "d:\myFolderPath"
+```
+
+开始录制：
+
+```
+host_framerate 60;
+host_timescale 0;
+mirv_snd_timescale 1;
+mirv_streams record start;
+```
+
+录制一段时间，停止录制：
+
+```
+mirv_streams record end; host_framerate 0
+```
+
+## 添加精度高达23bit的景深通道（OpenEXR）
+
+实际上精度最大大约到23bit，取决于你的显卡和驱动，一般都可达到。
+
+OpenEXR文件的深度值会在通道的`depthVal`和`depthValMax`之间 ，如果深度值不在二者之间，应该在离镜头0.75英尺的位置。小于`depthVal`距离的位置，其深度值均为`depthVal`，大于`depthValMax`距离的位置，其深度值均为`depthValMax`。
+
+有两种方式可以得到高精度景深/OpenEXR
+
+### 最新OpenEXR景深通道设置方式
 
 ```
 mirv_streams add depth depth
@@ -142,88 +214,110 @@ mirv_streams edit depth drawZMode linear
 mirv_streams edit depth captureType depth24
 ```
 
-### OpenEXR depthF stream [currently broken]
+### OpenEXR景深通道 [当前不可用]
 
-Enter the following lines into console:<br />
-<tt>mirv_streams add depth myDepthF</tt><br />
-<tt>mirv_streams edit myDepthF depthValMax 8192.0</tt><br />
-<tt>mirv_streams edit myDepthF captureType depthF </tt>
+```
+mirv_streams add depth myDepthF
+mirv_streams edit myDepthF depthValMax 8192.0
+mirv_streams edit myDepthF captureType depthF
+```
 
-If you want to have the OpenEXR files with ZIP compression (probably slower), then use <tt>depthFZIP</tt> instead of <tt>depthF</tt>.
+如果想要用ZIP压缩OpenEXR文件，则用`depthFZIP`代替`depthF`。
 
-### OpenEXR depth stream - The oldschool way
+First we tell HLAE to add a depth stream:
 
-**This option is not available at the moment, due to the February 17th CS:GO update!**
+```
+mirv_streams add depth mydepth24</tt>
+```
 
-**Please note:**
-* When using this method *you need to disable any anti aliasing*, because that would cause unwanted artefacts with the colour coded depth information!
-* This oldschool method doesn't support alpha blending of depth values, it instead does a binary alpha test and either renders or discards the incoming pixels based on that.
+Next we tell it to raise the maximal distance to 8192.0 (we can do this, since we will have a lot more precision now):
 
-First we tell HLAE to add a depth stream:<br />
-<tt>mirv_streams add depth mydepth24</tt><br />
+```
+mirv_streams edit mydepth24 depthValMax 8192.0
+```
 
-Next we tell it to raise the maximal distance to 8192.0 (we can do this, since we will have a lot more precision now):<br />
-<tt>mirv_streams edit mydepth24 depthValMax 8192.0</tt><br />
+Next we tell it to manipulate the stream by making a stream suitable for the depth24 capturing:
 
-Next we tell it to manipulate the stream by making a stream suitable for the depth24 capturing:<br />
-<tt>mirv_streams edit mydepth24 man toDepth24</tt><br />
+```
+mirv_streams edit mydepth24 man toDepth24
+```
 
 If you want to have the OpenEXR files with ZIP compression (probably slower) use <tt>toDepth24ZIP</tt> instead of <tt>toDepth24</tt>.
 
-## Quick view model matte
+## 持枪视角蒙版
+
+> 待修改，已有更好的单独录制持枪视角的方案
+
+如下可得到简易黑白持枪视角蒙版，结合其他通道可以扣出仅含持枪视角的图层：
 
 ```
-// Quick black and white viewmodel mask:
 mirv_streams add depth vmm
-mirv_streams edit vmm detphVal 15 // use 7 if you want gray scale
-mirv_streams edit vmm depthValMax 15 // note shells ejected are further away, because the game munges the depth of the viewmodel to have it on-top
+mirv_streams edit vmm detphVal 15 // 想要灰阶则用7
+mirv_streams edit vmm depthValMax 15 
 ```
 
-# FFMPEG image stream encoding (to video):
+# FFMPEG编码录制视频：
 
-First follow the instructions in `ffmpeg/readme.advancedfx.txt` (in HLAE folder) to install FFMPEG for HLAE.
+根据`.../hlae/ffmpeg/readme.advancedfx.txt`的提示为HLAE安装FFMPEG。
+
+下面是录制120fps，包含normal和景深depth通道的例子。
 
 ```
-// Example usage:
 host_framerate 120
 mirv_streams add normal norm
 mirv_streams edit norm settings afxFfmpegYuv420p
 mirv_streams add depth depth
 mirv_streams edit depth settings afxFfmpegLosslessBest
 mirv_streams record start
-// ...
+```
+
+录制一段时间后，结束录制：
+
+```
 mirv_streams record end
 ```
 
-Hint: You can add custom profiles / see the other default profiles by using the mirv_streams settings command.
+此外，可以使用`mirv_streams settings`指令自定义录制设置。
 
-Notice: Many video programs and browsers can not decode the depth streams, because they are "monochromatic rgb". Also **we recommend afxFfmpeg over afxFfmpegYuv420p, both are lossy**, but the former has better color quality, while many programs and browsers can only handle the latter.
+注意：许多播放器、剪辑软件和浏览器并不能解码此处的景深通道，所以推荐使用`afxFfmpegYuv420p`而不是`afxFfmpeg`，前者有损但是兼容性更强。
+
+> Purp1e注：官方自带的设置录制速度很慢，想要在速度、画质和文件大小取得平衡，可以参考[ffmpeg.cfg](https://github.com/Purple-CSGO/Cfg-Preset-By-Purp1e/blob/master/ffmpeg.cfg)，中的自定义录制设置和快捷指令。
 
 
-# Sampling System
-There is a default 30 down-sampler setting named afxSampler30 in afxSettings. If you want to change settings (e.g. output fps, please add a new sampler using `mirv_streams settings add [...]` and edit that one.
+# 采样系统
+HLAE自带一个默认的30fps下采样录制设置，名为`afxSampler30`，如果想要改变设置如修改FPS，请用`mirv_streams settings add [...]`添加一个新的采样，并编辑。
 
-Example usage:
+用法示例：
+
+// if you have FFMPEG installed for HLAE, you can use one of those settings (e.g. afxFfmpegYuv420p) instead of afxClassic
+
+如果你已为HLAE安装好FFMPEG，则可使用`afxFfmpegYuv420p`等录制设置代替`afxClassic`（无损tga图片序列）
+
 ```
-mirv_streams settings edit afxSampler30 settings afxClassic // if you have FFMPEG installed for HLAE, you can use one of those settings (e.g. afxFfmpegYuv420p) instead of afxClassic
 mirv_streams settings edit afxDefault settings afxSampler30
 mirv_streams add normal myNorm
+mirv_streams settings edit afxSampler30 settings afxClassic
+```
 
-// Start recording:
+开始录制：
+
+```
 host_framerate 1200; mirv_streams record start
+```
 
-// End recording:
+结束录制：
+
+```
 mirv_streams record end; host_framerate 0
 ```
-Please avoid cascading samplers for now, since that will probably cause problems, since HLAE will refuse to allocate more than 3 image buffers at the same time and just lock up waiting for a buffer to get available.
 
-# Related tutorials
+目前请勿使用cascading（H264编码器参数之一），可能会导致问题，因为HLAE在缓冲区放满3张图片后无法继续读入，必须等到缓冲区buffer清空后才可用。
 
-* [[Source:Smoother-Demos]]
+# 相关教学
+
+* [Source:Smoother-Demos]()
 * [Removing Volumetric Lights from Depth Passes in HLAE (Picker Method)](https://youtu.be/7Mnbr-3RvPs) by xNWP
 * [HLAE Picker Tool (Removing Players)](https://youtu.be/7gIPtqg-Gsg) by Alan Gaming
-* [[Tutorial: CS:GO Separate HUD Stream]]
+* [Tutorial: CS:GO Separate HUD Stream]()
 
-# See also
-
-* [[Source:Commands]]
+- [可参考的CFG](https://github.com/Purple-CSGO/Cfg-Preset-By-Purp1e/blob/master/stream.cfg) by Purp1e

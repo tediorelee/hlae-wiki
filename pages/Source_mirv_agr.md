@@ -1,156 +1,166 @@
-# Supported Games
+* # 支持的游戏
 
-* Counter-Strike: Global Offensive
-* Counter-Strike: Source v34
-* Team Fortress 2
+  - 反恐精英：全球攻势
+  - 反恐精英：起源 v34
+  - 军团要塞2
 
-# What does it do?
+  # 简介
 
-* AdvancedFX Game Recording (AGR) is a recording method which allows you to import recorded motion data into the 3D software [Blender](https://www.blender.org/).
+  AdvancedFX Game Recording (AGR) 是一种特殊的录制方式。其录制所得运动信息等可以导入3D软件[Blender](https://www.blender.org/)。
 
+  # 使用须知
 
-# Things you should know
-* 30 fps is a must have! Higher framerates can work, but will mostly end up in stuttering PoV animations.
-* To get smoother recordings in CS:GO make sure to follow the [[Smoother Demos guide|https://github.com/advancedfx/advancedfx/wiki/Source%3ASmoother-Demos]]
-* The size of your AGR depends on length, recorded [features](#commands) and animations.
+  - 请使用至少30fps的帧率录制！在更高的帧率下录制同样可以进行，但效果很可能受到动作本身帧率限制。
+  - 为了在反恐精英：全球攻势中录制更流畅，请查阅[Demo平滑处理指导](https://github.com/advancedfx/advancedfx/wiki/Source%3ASmoother-Demos)。
+  - 录制所得文件体积取决于时长、录制设置和动作复杂度等。
 
+  # 指令
 
-# Commands
+  ## 仅使用[mirv_streams](https://github.com/advancedfx/advancedfx/wiki/Source%3Amirv_streams)(反恐精英：全球攻势)
 
-## Counter-Strike: Global Offensive ONLY with [[mirv_streams|Source:mirv_streams]]
-```
-host_timescale 0; 
-host_framerate 30; 
-mirv_streams record agr enabled [...]; 
-mirv_streams record agr recordPlayers [...]; 
-mirv_streams record agr recordCamera [...]; 
-mirv_streams record agr recordWeapons [...];
-mirv_streams record agr recordProjectiles [...];
-mirv_streams record agr recordViewmodel [...]; (Not Recommended)
-mirv_streams record agr recordInvisible [...]; (Not Recommended) 
-```
+  ```
+  host_timescale 0; 
+  host_framerate 30; 
+  mirv_streams record agr enabled [...]; 
+  mirv_streams record agr recordPlayers [...]; 
+  mirv_streams record agr recordCamera [...]; 
+  mirv_streams record agr recordWeapons [...];
+  mirv_streams record agr recordProjectiles [...];
+  mirv_streams record agr recordViewmodel [...]; (不建议使用)
+  mirv_streams record agr recordInvisible [...]; (不建议使用) 
+  
+  ```
 
-## CS:GO, CS:S v34 and TF2 without [[mirv_streams|Source:mirv_streams]]
-```
-host_timescale 0 
-host_framerate 30
-mirv_agr enabled [...] - Enable / disable recording (Has to be enabled before loading the demo if you want to use AGR!).
-mirv_agr recordCamera [...]
-mirv_agr recordPlayers [...]
-mirv_agr recordWeapons [...]
-mirv_agr recordProjectiles [...]
-mirv_agr recordViewmodel [...]
-mirv_agr recordInvisible [...]
-mirv_agr debug 0|1|2 - Debug level
-mirv_agr start <FilePath\Name.agr>
-mirv_agr stop - Stop recording.
-```
+  ## 不使用[mirv_streams](https://github.com/advancedfx/advancedfx/wiki/Source%3Amirv_streams)(反恐精英：全球攻势、反恐精英：起源 v3、军团要塞2)
 
-# Import 
+  ```
+  host_timescale 0 
+  host_framerate 30
+  mirv_agr enabled [...] - 启用/禁用录制 (如果确实需要使用AGR功能，务必在载入Demo之前设置此项为1)
+  mirv_agr recordCamera [...]
+  mirv_agr recordPlayers [...]
+  mirv_agr recordWeapons [...]
+  mirv_agr recordProjectiles [...]
+  mirv_agr recordViewmodel [...]
+  mirv_agr recordInvisible [...]
+  mirv_agr debug 0|1|2 - 调试功能选项
+  mirv_agr start <FilePath\Name.agr> - 设置录制文件路径及文件名
+  mirv_agr stop - 停止录制
+  
+  ```
 
+  # 导入
 
-In order to import an AGR file to [Blender](https://www.blender.org), you have to download and install the [AFX-Blender-Scripts](https://github.com/advancedfx/afx-blender-scripts) and [Blender Source Tools](http://steamreview.org/BlenderSourceTools). 
-Please choose the right script versions here:
+  为了将AGR文件导入[Blender](https://www.blender.org/)，你需要安装 AFX-Blender-Scripts 和 Blender Source Tools。下载地址如下：
 
-Blender 2.8 or later:
-[AFX-Blender-Scripts](https://github.com/advancedfx/afx-blender-scripts/releases/)
-[Blender Source Tools](http://steamreview.org/BlenderSourceTools)
+  用于Blender 2.8或更高版本: [AFX-Blender-Scripts](https://github.com/advancedfx/afx-blender-scripts/releases/) [Blender Source Tools](http://steamreview.org/BlenderSourceTools)
 
-# Example (CSGO)
+  # 使用例（反恐精英：全球攻势）
 
-## 1. Choose your commands
+  ## 1. 选择需要的指令
 
-```
-host_timescale 0; 
-host_framerate 30; 
-mirv_streams record agr enabled 1; 
-mirv_streams record agr recordPlayers 1;
-mirv_streams record agr recordCamera 1; 
-mirv_streams record agr recordWeapons 0;
-mirv_streams record agr recordProjectiles 0;
-mirv_streams record agr recordViewmodel 0; 
-mirv_streams record agr recordInvisible 1; 
-```
+  ```
+  host_timescale 0; 
+  host_framerate 30; 
+  mirv_streams record agr enabled 1; 
+  mirv_streams record agr recordPlayers 1;
+  mirv_streams record agr recordCamera 1; 
+  mirv_streams record agr recordWeapons 0;
+  mirv_streams record agr recordProjectiles 0;
+  mirv_streams record agr recordViewmodel 0; 
+  mirv_streams record agr recordInvisible 1; 
+  
+  ```
 
-With these commands you will only record the Character Models and **splits up** the Running- and Death animation. **"record agr recordInvisible 0" won't record the spectated Player, but Running- and Death animation will be merged together.** Weapons, viewmodel and grenades(Projectiles) are disabled in this example for better performance, but can be enabled for sure! Weapons and viewmodel can be easily added afterwards.
+  使用以上指令只会录制人物模型，并且跑步等动作与死亡动画是分开的。使用"record agr recordInvisible 0"则不会录制被监视的人物，但跑步等动作与死亡动画将被合并。在这个例子中，为了优化性能，武器、视图模型和投掷物（飞行道具）均未被录制。如果需要的话，可以选择录制它们。
 
-Pro and cons:
-+ Smaller file size
-+ Decreasing import time
-+ More flexibility in terms of Animations (e.g. custom death animations)
-+ Changing Weapon (e.g. using a M4A4 instead of AK-47)
-- You have to do the PoV and PoV-bobbing manually (How the weapon bounces while running)
-- Weapon drop animations (dropping and dying) have to be done manually
+  优点：
 
+  - 文件体积较小
+  - 导入用时较短
+  - 动作改变较灵活（例如可以使用自定义死亡动画）
+  - 武器可替换（例如使用M4A4替换AK-47）
 
-## 2. Recording
+  缺点：
 
-* The default save path is <tt>Counter-Strike Global Offensive\untitled_rec\takexxxx</tt>.
-* Follow the [[Source:Smoother-Demos]] before recording. Which prevets your Demo from lags.
-* Commands for the [CS:GO mirv_stream](https://github.com/advancedfx/advancedfx/wiki/Source%3Amirv_agr#counter-strike-global-offensive-only-with-mirv_streams) method:
-```
-mirv_streams record start
-mirv_streams record end
-```
+  - 第一人称视角需自行制作（跑步时手臂晃动，枪械模型晃动等）
+  - 武器掉落动画需自行制作
 
-## 3. Decompiling Models
+  ## 2. 录制
 
-Method 1:
-* 1: Download [GCFScape](http://nemesis.thewavelength.net/?p=26) and [Crowbar](https://steamcommunity.com/groups/CrowbarTool)
-* 2: Open the <tt>pak01_dir.vpk</tt> with GCFScape inside your <tt>Counter-Strike Global Offensive\csgo</tt> folder
-* 3: Go to <tt>Root > Models > Players / Weapons</tt> and extract the folders.
-* 4: Open Crowbar, enable the option <tt>Folder for each model</tt> and decompile the Player / Weapons folder.
-* 5: Create a new folder called e.g.  <tt>CSGO</tt>, create another folder inside called <tt>models</tt> and move the decompiled Players and Weapons folders inside there.
+  - 默认保存路径为`Counter-Strike Global Offensive\untitled_rec\takexxxx`.
+  - 录制前请查阅 [Source:Smoother-Demos](https://github.com/advancedfx/advancedfx/wiki/Source%3ASmoother-Demos)。
+  - [CS:GO mirv_stream](https://github.com/advancedfx/advancedfx/wiki/Source%3Amirv_agr#counter-strike-global-offensive-only-with-mirv_streams) 所需指令：
 
-Method 2:
-Download [Devostated's Decompiled Models](http://thatnwp.com/3D/CSGO%20Models%20Decompiled%20with%200.56.rar) with fixed .SMDs for less errors and extra models and animations.
+  ```
+  mirv_streams record start
+  mirv_streams record end
+  
+  ```
 
+  ## 3. 模型反编译
 
-## 4. Setting up Blender and importing AGR
+  方法一：
 
-* 1: After installing and enabling both Blender scripts, delete the *Default Scene* (Cube, Light and Camera) change the frame rate to 30 fps and go to <tt>File > Save Startup File </tt>.
-* 2: Enable the console <tt>(Window > Toggle System Console)</tt> to see any errors and progress.
-* 3: Go to <tt>File > Import HLAE afxGameRecord (.agr) </tt>
-* 4: Open the folder of your AGR <tt>(Default: Counter-Strike Global Offensive\untitled_rec\takexxxx)</tt>. 
-* 5: Add the path of your Decompiled Models folder (e.g. <tt>C:\Users\%USERNAME%\Desktop\CSGO)</tt>. and get your import settings. 
+  - 1. 下载[GCFScape](http://nemesis.thewavelength.net/?p=26)和[Crowbar](https://steamcommunity.com/groups/CrowbarTool)。
+  - 2. 在GCFScape中打开`Counter-Strike Global Offensive\csgo`目录下的 `pak01_dir.vpk` 文件。
+  - 3. 在`Root > Models`目录下找到`Players`和`Weapons`文件夹并将其提取出来。
+  - 4. 打开Crowbar，启用`Folder for each model`选项，然后将提取的文件夹反编译。
+  - 5. 新建一文件夹（例如CSGO）并在其中再新建一`models`文件夹，将反编译所得模型移动至此。
 
-![](https://user-images.githubusercontent.com/30211694/71773957-a3d47180-2f66-11ea-8cd9-1bc68c52447e.png)
-* 5.1: You can change different options such as:
-  * `Add interpolated key frames`
-  * `Scale`
-  * `Scale invisible to zero` (*recordInvisible 1* will be hidden if it's not supposed to be e.g. Running Players after death)
-  * `Skip Physic Meshes` (Skips collision boxes, so you don't have to remove them manually and leads to faster import time)
-  * `Bones (skeleton) only` (This will decrease the time to import. I recommend to you use it, if you plan to export your AGR to another program like UE4, Maya or C4D)
-  * `Model instancing` (Instances Models instead of reimporting the same models again)
-* 6: Double click the AGR file or hit `Import` to import the AGR file.
-* 7: Enjoy your AGR.
+  方法二：下载[Devostated氏反编译模型](http://thatnwp.com/3D/CSGO%20Models%20Decompiled%20with%200.56.rar)。
 
-## 4.1 Export
-* For the export of your AGR to other 3D programs you need following settings:
-![](https://user-images.githubusercontent.com/30211694/71773950-8bfced80-2f66-11ea-9ab2-717e866e9df5.png)
+  ## 4. 配置Blender及AGR的导入
 
-## 4.2 Import and Export w/ [Darkhandrob's CSGO-AGR-Import-Export-FBX script](https://github.com/Darkhandrob/CSGO-AGR-Import-Export-FBX)
+  - 1. 确保正确安装及启用AFX-Blender-Scripts 和 Blender Source Tools。删除默认场景（小方块，灯光及摄像机），设置帧率为30fps。执行`File > Save Startup File`命令。
+  - 2. 启用控制台`(Window > Toggle System Console)`以监视进程及错误。
+  - 3. 执行`File > Import HLAE afxGameRecord (.agr)`命令。
+  - 4. 打开存放AGR文件的目录`(默认为Counter-Strike Global Offensive\untitled_rec\takexxxx)`。
+  - 5. 添加存放模型文件的目录（例如`C:\Users%USERNAME%\Desktop\CSGO`），设置所需导入选项。
+       ![](https://user-images.githubusercontent.com/30211694/71773957-a3d47180-2f66-11ea-8cd9-1bc68c52447e.png)
 
-### What is it and what does it do?
-* It's made for Unreal Engine 4 users and automatically exports your AGR as FBX
-* Also can export the current loaded AGR (<tt>File > Export > AGR Export FBX</tt>)
-* [List of all features](https://github.com/Darkhandrob/CSGO-AGR-Import-Export-FBX#features)
+  - 5.1 你可以自行变更设置，例如：
 
-* Direct Export
-  * 1: After installing and enabling both Blender scripts, delete the *Default Scene* (Cube, Light and Camera) change the frame rate to 30 fps and go to <tt>File > Save Startup File </tt>.
-  * 2: Enable the console <tt>(Window > Toggle System Console)</tt> to see any errors and progress.
-  * 3: Go to <tt>File > Import > AGR Import and Export FBX</tt>
-  * 4: Open the folder of your AGR <tt>(Default: Counter-Strike Global Offensive\untitled_rec\takexxxx)</tt>. 
-  * 5: Add the path of your Decompiled Models folder, get your import settings and **set your Export Path**.
-  * 6: Double click the AGR file or hit `CSGO AGR Import-Export FBX` to import the AGR file.
-  * 7: Enjoy your FBX files.
+  `Add interpolated key frames`
+  `Scale`
+  `Scale invisible to zero (无论录制时如何设置recordInvisible，启用此选项即更改为0)`
+  `Skip Physic Meshes (导入时跳过碰撞体积信息，这样你将不用手动删除它们，导入用时将缩短)`
+  `Bones (skeleton) only (启用此项可缩短导入用时；如果你需要将AGR导出至其他软件，如UE4、Maya或C4D，建议启用此选项)`
+  `Model instancing (启用此项以避免今后导入相同的模型)`
 
+  - 6. 双击AGR文件或单击`import`按钮以导入AGR。
+  - 7. 尽情创作吧！
 
-# Related tutorials
-* [How to Import AGR v4 to Unreal Engine, C4D, Maya etc.](https://www.youtube.com/watch?v=HAy_Tuckp8o) by Devostated
+  ## 4.1 导出
 
-# See also
+  - 为了将AGR文件导出至其他3D软件中，请使用如下设置：
 
-* [[Source:Commands]]
-* [[Source:mirv_streams]]
-* [[Source:Smoother-Demos]]
+  ![](https://user-images.githubusercontent.com/30211694/71773950-8bfced80-2f66-11ea-9ab2-717e866e9df5.png)
+
+  ## 4.2 使用[Darkhandrob氏CSGO-AGR-Import-Export-FBX脚本](https://github.com/Darkhandrob/CSGO-AGR-Import-Export-FBX)实现导入/导出
+
+  ### 简介
+
+  - 该脚本为虚幻4引擎用户制作，可实现AGR自动导出为FBX
+  - 支持导出当前打开的AGR文件（`File > Export > AGR Export FBX`）
+  - [特性一览表](https://github.com/Darkhandrob/CSGO-AGR-Import-Export-FBX#features)
+
+  ### 直接导出
+
+  - 1. 确保正确安装及启用AFX-Blender-Scripts 和 Blender Source Tools。删除默认场景（小方块，灯光及摄像机），设置帧率为30fps。执行`File > Save Startup File`命令。
+  - 2. 启用控制台`(Window > Toggle System Console)`以监视进程及错误。
+  - 3. 执行`File > Import > AGR Import and Export FBX`命令。
+  - 4. 打开存放AGR文件的目录`(默认为Counter-Strike Global Offensive\untitled_rec\takexxxx)`。
+  - 5. 添加存放模型文件的目录（例如`C:\Users%USERNAME%\Desktop\CSGO`），设置所需导入选项，以及存放导出文件的路径。
+  - 6. 双击AGR文件或单击`CSGO AGR Import-Export FBX`按钮以导入AGR。
+  - 7. 查看导出的FBX文件。
+
+  # 相关教程
+
+  [如何将AGR文件导入Unreal Engine、C4D或Maya等软件](https://www.youtube.com/watch?v=HAy_Tuckp8o)  （Devostated 制作）
+
+  # 另请查阅
+
+  - [Source:Commands](https://github.com/advancedfx/advancedfx/wiki/Source%3ACommands)
+  - [Source:mirv_streams](https://github.com/advancedfx/advancedfx/wiki/Source%3Amirv_streams)
+  - [Source:Smoother-Demos](https://github.com/advancedfx/advancedfx/wiki/Source%3ASmoother-Demos)
