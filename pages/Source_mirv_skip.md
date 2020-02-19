@@ -1,35 +1,49 @@
-This command allows skipping through the demo easily, it's a front end to the demo_gototick command.
+使用这条指令可在demo的不同时间点来回跳跃，它是指令`demo_gototick`的前端应用。
 
-# Supported games
+# 支持的游戏
 
-* Counter-Strike: Global Offensive
+* CSGO
 
-Some other Source game might be supported too, but we don't know really, so don't count on it.
+可能支持一些其他起源游戏，但是并不清楚。
 
-# Built-in command reference
+# 内置指令提示
 
-Enter <tt>mirv_skip</tt> without further options to get the built-in reference. If there is a line with <tt>[...]</tt>, then it means you can enter what is written before to get more help for those sub-commands listed there.
+输入`mirv_skip`获取内置提示，如果有一行包含`[...]`，说明可以得到该行子命令的进一步的帮助和提示。
 
-# Examples
+# 示例
 
-Skip about 100 demo ticks forward:<br />
-<tt>mirv_skip tick 100</tt>
+向后跳跃大约100tick：
 
-Skip about 200 demo ticks backward:<br />
-<tt>mirv_skip tick -200</tt>
+```
+mirv_skip tick 100
+```
 
-Goto demo tick 10000 (approximately):<br />
-<tt>mirv_skip tick to 10000</tt>
+向前跳跃大约200tick：
 
-Skip about 10 seconds forward:<br />
-<tt>mirv_skip time 10</tt>
+```
+mirv_skip tick -200
+```
 
-Skip about 2.5 seconds back:<br />
-<tt>mirv_skip time -2.5</tt>
+大致跳跃到10000tick处：
 
-Goto demo time 173.5 seconds (approximately):<br />
-<tt>mirv_skip time to 173.5</tt>
+```
+mirv_skip tick to 10000
+```
 
-# See also
+向后跳跃大约10s：
 
-* [[Source:Commands]]
+```
+mirv_skip time 10
+```
+
+向前跳跃大约2.5s：
+
+```
+mirv_skip time -2.5
+```
+
+大致跳跃到Demo时间173.5s处：
+
+```
+mirv_skip time to 173.5
+```

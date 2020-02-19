@@ -1,28 +1,47 @@
-# Importing camera motion data
+# 导入摄像机运动数据
 
-Make sure that the footage you import was recorded or exported with high enough fps (at least as high as the maximum fps you need).
+## 说明
 
-To start importing:<br />
-<tt>mirv_camimport start test.bvh</tt><br />
-In case no path is specified the .bvh file will be loaded from the folder where the game .exe is located.
+请务必确保运动数据`.bvh`的采样帧率fps高于最高可能用到的录制FPS。
 
-To stop importing:<br />
-<tt>mirv_camimport stop</tt>
+## 指令
 
-# Notes on path timing
+路径导入(从当前时间开始)：
 
-The path uses the current interpolated (demo) time, if you pause the demo, the path will pause too.
+```
+mirv_camimport start test.bvh
+```
 
-Upon <tt>mirv_camimport start ...</tt> the path is set to start at the current time.
+停止导入：
 
-You can view the current time using <tt>mirv_camexport timeinfo</tt>.
+```
+mirv_camimport stop
+```
 
-You can view and change the start time of a path already imported using <tt>mirv_camimport basetime</tt>.
+查看当前时间：
 
-# See also
+```
+mirv_camexport timeinfo
+```
 
-* [[mirv_camexport|Source:mirv_camexport]]
-* [[Camera Motion Data]]
-* [[Source:Commands]]
-* [[AfxHookSource]]
-* [[Source:Order of camera overrides]]
+查看和改变已经导入的路径的开始时间：
+
+```
+mirv_camimport basetime
+```
+
+## 文件位置
+
+注意，`.bvh`文件固定保存在`csgo.exe`同目录下。
+
+## 注意
+
+暂停demo的同时路径也会暂停
+
+# 参考文章
+
+* [mirv_camexport]()
+* [Camera Motion Data]()
+* [Source:Commands]()
+* [AfxHookSource]()
+* [Source:Order of camera overrides](https://github.com/advancedfx/advancedfx/wiki/Source%3AOrder-of-camera-overrides)

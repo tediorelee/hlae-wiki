@@ -1,24 +1,24 @@
-This command is for aiming the camera at a target (i.e. player or any other entity or a point on the map).
+该指令允许摄像机对准目标对象 (即人物模型或地图上的任意点).
 
-# Supported Games
+# 支持游戏
 
-Only Counter-Strike: Global Offensive is supported.
+仅在Counter-Strike: Global Offensive上允许.
 
-# Built in command help / navigation
+# 内置指令的帮助 / 指引
 
-The manual doesn't cover all the options available through the mirv_aim command. Basically enter the mirv_aim command or to get help for the command. If the help displays a subcommand with <tt>[...]</tt> behind it, then you can enter everything in-front to get more help for that sub-command.
+该指导未包含所有mirv_aim相关指令上的帮助. 控制台中输入 mirv_aim 指令即可获得相关帮助. 如果帮助中的子命令后缀有 <tt>[...]</tt> , 则可输入该子命令获得更多帮助.
 
-# Priority
+# 重点
 
-See [[Source:Order of camera overrides]].
+见[[Source:Order of camera overrides]].
 
-# Mini tutorials
+# 小技巧
 
-## Aiming at an entity or player
+## 对准一个物体或人物模型
 
-### Finding a player - The easy way
+### 用简单的方法找到玩家
 
-Just enter <tt>voice_show_mute</tt> into console to get a current player list:
+只需控制台输入 <tt>voice_show_mute</tt> 得到玩家列表:
 
 ```
 ] voice_show_mute 
@@ -39,13 +39,13 @@ Player#     Player Name
 -------     ----------------
 ```
 
-Note down the number to the left, which is the current entity index of the player.
+记下左端数字,其为玩家所对应的编号.
 
-### Finding an player or other entity - The hard way
+### 用硬核的方法找到玩家
 
-First we move the camera near the entity / player we want to aim at. For that we pause the demo (<tt>demo_pause</tt>) and move the camera using <tt>[[mirv_input|Source:mirv_input]] camera</tt>.
+首先将相机移动到玩家或物体附近. 暂停Demo (<tt>demo_pause</tt>) 用以下指令移动摄像机 <tt>[[mirv_input|Source:mirv_input]] camera</tt>.
 
-Then we use [[mirv_listentities|Source:mirv_listentities]] in order to get the entity index:
+然后使用[[mirv_listentities|Source:mirv_listentities]] 得到物体编号:
 
 ```
 ] mirv_listentities 
@@ -71,60 +71,60 @@ index (distance): className::enitityName playerName
 497 (2038.314745): weapon_glock:: [n/a]
 ```
 
-The idea is to look at the distance from the camera to the entity origin, which is the second number in the round brackets.
+这样做的目的是查看物体中心点与相机间的距离,即在圆括号中的数字.
 
-You will notice that there are more players in the game than we saw with the other method. This is because we are using a GOTV demo. With the info form <tt>voice_show_mute</tt> above , we can conclude what is what:
+你会发现这样子找到的玩家会比用另一方法多. 这是因为我们使用的是 GOTV demo. 通过以上所得信息 <tt>voice_show_mute</tt>  , 我们可以推断多出的玩家:
 
-* #1 is probalby the entity for the GOTV viewer (you), the reason it's so far away is because the net origin is not updated (only the view origin is), the view origin is actually pretty close to your camera.
-* #2 is the GOTV observer / camera man / autodirector
-* #3 is an real observer
+* #1 也许是GOTV摄像机 (也就是您),至于他离你这么远的原因也许是摄像机中心点未更新(只有视图中心点), 试图的中心点其实非常接近您的摄像机.
+* #2 是GOTV 的ob / 相机 / 自动视图
+* #3 是一位观众
 
-Again write down the number of the entity you found this way, it's the index (left-most number).
+同样地记下物体对应的号码, 这是他们的编号 (最左侧的数字).
 
-### Aiming and moving around
+### 对准与环绕运动
 
-Now we got the number of the entity we want to aim at, in my case I picked 4, which happens to be _TaZ g2a.com_.
+现在我们得到了想要对准物体的编号, 例如我选的4, 恰好是 _TaZ g2a.com_.
 
-I tell mirv_aim to aim at that entity index:
+我下达 mirv_aim 对应编号的指令:
 
 ```
 ] mirv_aim entityIndex 4
 ```
 
-Next I enable the aiming system:
+然后使对准系统处于活跃状态:
 
 ```
 ] mirv_aim active 1
 ```
 
-By now the camera should already point at the player.
+现在相机应该对准着对应的物体.
 
-If you want to move around with the keyboard, then you need to enable <tt>[[mirv_input|Source:mirv_input]] camera</tt> mode:
+如果你想使用键盘来移动摄像机, 你需要启动 <tt>[[mirv_input|Source:mirv_input]] camera</tt> 模式:
 
 ```
 ] mirv_input camera
 ```
 
-Now you can move around using the keys (please look them up in the [[mirv_input|Source:mirv_input]] article) for forward, back, left, right, up, down.
+现在你可以用键盘使摄像机 (请参考 [[mirv_input|Source:mirv_input]] 文章) 前进, 后退, 向左, 向右, 向上, 向下.
 
-**If you want to tilt the camera**, you need to tell mirv_aim to use the up vector from the previous camera states (in our case mirv_input, but could be also from mirv_campath or the game itself):
+**如果你想倾斜摄像机**, 你需要输入 mirv_aim使用先前摄像机状态的上向量 (例子中使用的是 mirv_input, 但也可以使用 mirv_campath 或游戏自带的相机):
 
 ```
 ] mirv_aim up input
 ```
 
-If you want the camera re-aiming to be smoother, just disable snapTo:
+如果你想让摄像机平滑地重新对准, 只需禁用 snapTo:
 
 ```
 ] mirv_aim snapTo 0
 ```
 
-Don't forget to end mirv_input camera mode ;)
+请不要忘了关闭mirv_input camera模式 ;)
 
-**Note:** You can change / control the aiming system based on current (game) time through it's commands using [[mirv_cmd|Source:mirv_cmd]] / [Valve's demoui PlayCommands](https://developer.valvesoftware.com/wiki/Demo_Recording_Tools#Demo_editor).
+**笔记:** 您可以改变或控制基于(游戏)时间的摄像机对准系统 [[mirv_cmd|Source:mirv_cmd]] / [Valve's demoui PlayCommands](https://developer.valvesoftware.com/wiki/Demo_Recording_Tools#Demo_editor).
 
-# See also
+# 参考
 
-* [[Source:Commands]]
-* [[mirv_listentities|Source:mirv_listentities]]
-* [[Source:Order of camera overrides]]
+* [Source:Commands](https://github.com/advancedfx/advancedfx/wiki/Source%3ACommands)
+* [mirv_listentities|Source:mirv_listentities](https://github.com/advancedfx/advancedfx/wiki/Source%3Amirv_listentities)
+* [Source:Order of camera overrides](https://github.com/advancedfx/advancedfx/wiki/Source%3AOrder-of-camera-overrides)

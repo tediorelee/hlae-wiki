@@ -1,22 +1,27 @@
-This command is for listing the entities known to the engine when the command is issued.
+这个指令用于列出一些物体的相关信息。
 
-# Supported Games
+# 支持的游戏
 
-Only Counter-Strike: Global Offensive is supported.
+仅支持CSGO。
 
-# Usage
+# 用法
 
-When entered the command prints a line for each entity known. The first line contains the information about what is printed in each line, currently this mostly is:
+输入指令
+
+```
+mirv_listentities
+```
+
+每个已知物体的信息都会打印在控制台的单独一行中。第一行包含了打印信息的说明（类似表头），当前大部分的格式为：
 
 <tt>index (distance): className::enitityName</tt>
 
-Where
-* <tt>index</tt> is the entity index in the engine, which for example can be used with [[mirv_aim|Source:mirv_aim]]
-* <tt>distance</tt> is the distance to the last known camera origin (your in-game view)
-* <tt>className</tt> and <tt>entityName</tt> can be useful to determine which type of entity it is.
+----
 
-To find an entity move the camera next to it and check the <tt>distance</tt> entry.
+其中
 
-# See also
+* <tt>index</tt> 是游戏中物体的序号（比如玩家），可用于如[mirv_aim]()等指令。
+* <tt>distance</tt> 是和最后一次游戏内位置的距离。
+* `className`（类名）和`entityName`（物体名）用于区分物体。
 
-* [[Source:Commands]]
+想要找到一个物体，移动视角到它的旁边，并查看`distance`值。

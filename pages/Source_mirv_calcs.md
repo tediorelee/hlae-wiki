@@ -89,5 +89,4 @@
 
 # 脚本演示
 
-- [priusfx_20190125T1132Z.zip](https://drive.google.com/open?id=14frey2ImG5TxnK5q1Ct2mAnH7B_pO7Yh)
-
+- priusfx_20190125T1132Z.zip: https://drive.google.com/open?id=14frey2ImG5TxnK5q1Ct2mAnH7B_pO7Yh

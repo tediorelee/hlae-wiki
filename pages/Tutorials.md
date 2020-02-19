@@ -1,79 +1,65 @@
-## [How to use FFMPEG+HLAE to record with ready-to-use config preseted](https://github.com/advancedfx/advancedfx/wiki/How-to-use-FFMPEG-HLAE-to-record-with-ready-to-use-config-preseted)
+> 教程主页待改进，一些标题划掉待以后补充，某些链接无效待修改。
 
-This tutorial is based on a ffmpeg.cfg along with some tested presets written by Purple-CSGO.
+## [HLAE搭配FFMPEG录制和使用预设CFG的教程](https://github.com/advancedfx/advancedfx/wiki/How-to-use-FFMPEG-HLAE-to-record-with-ready-to-use-config-preseted)
 
-Video tutorial: https://b23.tv/av56424646 [English subtitle available]
+教程基于`Purple-CSGO`测试写得的`ffmpeg.cfg`预设config。
 
-Blog: https://purp1e.site/hlae/hlaeffmpeg-en.html [[zh-CN](https://purp1e.site/hlae/hlaeffmpeg.html)]
+视频教程： <https://b23.tv/av56424646> [英文字幕可用]
 
-Download [ffmpeg.cfg](https://github.com/Purple-CSGO/Cfg-Preset-By-Purp1e/blob/v1.2/en/ffmpeg.cfg) [[zh-CN](https://github.com/Purple-CSGO/Cfg-Preset-By-Purp1e/blob/v1.2/ffmpeg.cfg)] or [ffmpeg420.cfg ](https://github.com/Purple-CSGO/Cfg-Preset-By-Purp1e/blob/v1.2/en/ffmpeg420.cfg)[[zh-CN](https://github.com/Purple-CSGO/Cfg-Preset-By-Purp1e/blob/v1.2/ffmpeg420.cfg)] (Added"-pix_fmt yuv420p" to avoid some errors)
+博客： <https://purp1e.site/hlae-ffmpeg/>
 
-## [[How to completely uninstall HLAE]]
+预设CFG下载： [ffmpeg.cfg](https://github.com/Purple-CSGO/Cfg-Preset-By-Purp1e/blob/master/ffmpeg.cfg)
 
-## Fix CS:GO bomb plant spec lag/spin in 128 tick GOTV demos
+## [如何完全卸载HLAE]()
 
-See <tt>[[mirv_fix blockObserverTarget|Source:mirv_fix#mirv_fix-blockobservertarget]]</tt> command.
+## 修复128tick的demo下包时视角延迟旋转的问题
 
-## [[Smoother Demos|Source:Smoother Demos]]
+见[blockObserverTarget]()指令。
 
-## [[How to change Panorama UI]]
+## [Smoother Demos|Source:Smoother Demos]()
 
-## Camexport / Camimport Video Tutorials
+## [如何修改Panorama UI]()
 
-Please note that these features are for advanced users, normal users might want to use [[mirv_campath|Source:mirv_campath]] instead!
+## 镜头路径导入导出教程
 
-### English
+注意这些功能是为高级用户使用，一般用户可使用[mirv_campath]()指令。
+
+### 英语
 
 http://www.youtube.com/view_play_list?p=6A6D7C24BCDA5A6F by msthavoc
 
-### German
+### 德语
 
 http://www.youtube.com/view_play_list?p=A9DD1543240A0C5D by msthavoc
 
-## Easy wallhack (CS:GO)
+## 简单透视通道设置（CSGO）
 
-For CS:GO you can enable an easy wallhack by using `exec afx/wh` in console and following the instructions printed in the console. Works best with GOTV demos.
+在控制台中使用`exec afx/wh`加载简单透视通道设置，根据控制台指令提示操作，GOTV的Demo中效果最好。
 
-## [[CS:GO Calculate real FOV from engine FOV / mirv_fov]]
+## ~~[CS:GO Calculate real FOV from engine FOV / mirv_fov]()~~
 
-## Remove graffiti with mirv_streams
+## 使用mirv_streams移除涂鸦
 
 ```
 mirv_streams edit <streamNameHere> actionFilter add "decals/playerlogo\*" noDraw
 ```
 
-## Fix crouch height in old CS:GO demos
+## 修复旧Demo的下蹲高度问题
 
-See <tt>[[mirv_fix oldDuckFix|Source:mirv_fix#mirv_fix-oldduckfix]]</tt>
+见[oldDuckFix]()
 
-## mirv_streams - picker - Hiding materials / entites and special effects
+## ~~[CSGO分离HUD教程]()~~
 
-### New tutorial
+## ~~[CSGO更换天空教程]()~~
 
-[Removing Volumetric Lights from Depth Passes in HLAE (Picker Method)  
-![thumbnail](http://img.youtube.com/vi/7Mnbr-3RvPs/default.jpg) https://youtu.be/7Mnbr-3RvPs](https://youtu.be/7Mnbr-3RvPs)
-
-### Original tutorial (longer, more details)
-
-[![thumbnail](http://img.youtube.com/vi/aLxHUIOpGcU/default.jpg) 
-https://youtu.be/aLxHUIOpGcU](https://youtu.be/aLxHUIOpGcU)
-
-1) In the first 6 minutes you will learn how to quickly find and hide unwanted objects / materials from a depth stream.
-
-2) In the remaining 13 minutes I will show how to solve the advanced exercise of hiding a players shadow and additionally also how to add custom actions and giving specific players a solid colour using those.
-
-## [[Tutorial: CS:GO Separate HUD Stream]]
-
-## [[Tutorial: CS:GO: Replace sky with mirv_streams on nuke / inferno / train]]
-
-## How to fix CS:GO bomb plant brightness
+## 解决CSGO炸弹安放时的亮度问题
 
 1) Load the demo.
 2) Use mat_force_tonemap_scale and try values between 1.0 to 2.0 (i.e. 1.0 or 1.1 or whatever you like).
 
 (This also fixed the brightness change / overbright when skipping through the demo.)
 
-## CS:GO Flash Removal
+## CSGO移除闪光效果
 
 ```
 mirv_cvar_unhide_all
@@ -82,17 +68,20 @@ mat_suppress "effects/flashbang.vmt"
 mat_suppress "effects/flashbang_white.vmt"
 ```
 
-To enable flash overlay again, enter both lines with mat_suppress again (meaning it works like a toggle).
+再次开启闪光效果，再次输入如下指令即可：
 
-If you want to bind them to a key use this: 
+```
+mat_suppress "effects/flashbang.vmt"
+mat_suppress "effects/flashbang_white.vmt"
+```
+
+绑定按键的指令示例：
 
 ```
 bind keyNameHere "mirv_cvar_unhide_all; sv_cheats 1; mat_suppress effects/flashbang.vmt; mat_suppress effects/flashbang_white.vmt"
 ```
 
-Pressing the key will toggle flashes off/on.
-
-## CS:GO remove xray and caster camera / xray control:
+## CSGO移除X光和解说镜头/X光
 
 ```
 mirv_cvar_unhide_all
@@ -103,32 +92,32 @@ spec_cameraman_xray 0
 spec_show_xray 0
 ```
 
-## Tutorials by fuze
+## fuze的教程
 
-1. Using depth maps  
-https://www.youtube.com/watch?v=WeWXWMgp-CA
-2. Recording streams and depth effects in AAE
-https://www.youtube.com/watch?v=4LVBlvzurcc
+1. 使用景深地图
 
-## Remove nametags
+  <https://www.youtube.com/watch?v=WeWXWMgp-CA>
+
+2. 在AAE中录制通道和景深效果
+  <https://www.youtube.com/watch?v=4LVBlvzurcc>
+
+## 移除改名卡
 
 ```
 mirv_streams edit green actionFilter addEx "name=models/weapons/uid/\*" "action=noDraw"
 ```
 
-## [[SFM: How to import models, cameras, maps, and attach custom models to players]]
+## ~~[SFM: How to import models, cameras, maps, and attach custom models to players]()~~
 
-## [[How to change demos from day to night as of early 2017]]
+## ~~[How to change demos from day to night as of early 2017]()~~
 
-## [[CS:GO POV weapon only stream]]
-
-## CS:GO ReShade with HLAE
+## HLAE使用ReShade启动CSGO
 
 [CS:GO Editing Tutorials #44 - ReShade Setup with HLAE (2018)  
 https://youtu.be/phRX0uZmdu4](https://youtu.be/phRX0uZmdu4)  
 Tutorial by https://twitter.com/AlanGamingHD
 
-## CS:GO disable distance fading of props
+## 解决CSGO远处物体不加载问题
 
 ```
 sv_cheats 1
@@ -136,8 +125,9 @@ r_disable_distance_fade_on_big_props 1
 r_disable_distance_fade_on_big_props_thresh 0
 ```
 
-## [[How to record a GOTV demo on a local server]]
+## ~~[本地服务器录制GOTV DEMO教程]()~~
 
-## Blood removal config
+## 移除血迹Config
 
 - https://twitter.com/MolenTV/status/1134400694335791105
+

@@ -1,25 +1,54 @@
-<tt>mirv_fov _default|&lt;f&gt;_</tt>
+# 说明
 
-This command allows to set the Field Of View in degrees, where the argument either is a floating point value (_&lt;f&gt;_) between 1.0 and 179.0 degrees or the special value _default_ for restoring the game's default behaviour.
+这条指令用于设置`Field Of View`，即FOV，`视场角`。FOV值在1~179°之间，`defalut`为游戏默认的值。
 
-**Also see [[Useful related sub-commands|Source:mirv_fov#useful-related-sub-commands]] below!**
+# 用法
 
-The field of view value will be picked up by the campath features ([[mirv_campath|Source:mirv_campath]]). However for technical reasons it will be ignored by the camera import / export features ([[mirv_camexport|Source:mirv_camexport]] / [[mirv_camimport|Source:mirv_camimport]]).
+## 一般用法
 
-Except if you want your FOV to be overridden, be sure to set the <tt>mirv_fov default</tt> before replaying a [[mirv_campath|Source:mirv_campath]], since the camera settings are applied and overriden in the following order:
+不妨把fov设置为100
+
+```
+mirv_fov 100
+```
+
+恢复默认的fov（大约95）
+
+```
+mirv_fov default
+```
+
+## 解决开镜缩放问题
+
+某次CSGO更新后，`fov_cs_debug`指令更改导出出现了开镜缩放问题（开镜时视角FOV没有变化），首先确保关闭它：
+
+```
+fov_cs_debug 0
+```
+
+然后使用该指令解决缩放问题：
+
+```
+mirv_fov handleZoom enabled 1
+```
+
+更改FOV应使用`mirv_fov`指令，见上文，例如：
+
+```
+mirv_fov 105
+```
+
+>  对CSGO以外的游戏，可能要输入指令`mirv_fov handleZoom`，获得更多帮助。
+
+# 其他
+
+FOV值会被摄像机路径记录（摄像机位置和FOV值都可随路径改变），见[mirv_campath]()。然而因为技术原因在导入导出摄像机路径时会被忽略，见[mirv_camimport]()和[mirv_camexport]()
+
+回放摄像机路径之前（见[mirv_campath]）, 除非想要FOV值被覆盖，请设置`mirv_fov default`。因为摄像机设置会按照如下顺序加载和覆盖：
 
 1. mirv_campath
 2. mirv_camimport
 3. mirv_fov
 4. mirv_input camera
 
-# Useful related sub-commands
 
-You usually also want to enter <tt>mirv_fov handleZoom enabled 1</tt> which will make mirv_fov not override the zoomed fov for i.e. AWP in CS:GO.
-
-For other games than CS:GO you might need to adjust the threshold (if their un-zoomed FOV is less than 90 degrees), enter <tt>mirv_fov handleZoom</tt> into console to get further help.
-
-# See also
-
-* [[Source:Commands]]
-* [[Source:Order of camera overrides]]

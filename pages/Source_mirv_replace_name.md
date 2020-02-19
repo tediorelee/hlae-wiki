@@ -1,19 +1,25 @@
-This command allows to replace name in death notices and bottom bar, however won't replace GOTV player bars on left/right side of the screen.
+这条指令可以替换击杀信息、底部信息面板的玩家名，但是不会替换左右的玩家信息条（按G切换开关）中的名字。
 
-# Supported games
+# 支持的游戏
 
-* Counter-Strike: Global Offensive
+CSGO
 
-# This page needs to be updated
+# 更改玩家名
 
-The most recent info can be found in the [HLAE 2.51.0 (2018-07-07T12:44Z) changelog here](https://github.com/advancedfx/advancedfx/releases/tag/v2.51.0).
+- 切换到玩家第一人称后使用以下指令即可更改玩家名。改成中文名要在游戏外编辑好复制，回到游戏内在控制台中输入，或者放在CFG里加载。
 
-# Reference
+```
+  mirv_replace_name xtrace Purp1e
+```
 
-The command has a built-in reference, just enter<br />
-<tt>mirv_replace_name</tt><br />
-without parameters in console to print it.
+- 还原
 
-# See also
+```
+  mirv_replace_name clear
+```
 
-* [[Source:Commands]]
+# 内置提示
+
+
+在控制台中输入`mirv_replace_name`，获得内置的指令使用提示。
+
