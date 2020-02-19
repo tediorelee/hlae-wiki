@@ -1,10 +1,10 @@
-Lets you load external .dll files.
+允许您加载外部.dll文件.
 
-# Supported Games
-All Source engine-based games that HLAE also supports.
+# 支持游戏
+支持HLAE的所有基于起源引擎的游戏.
 
-# Usage
+# 用法
 `mirv_loadlibrary <full-path>`
-Don't forget quotation marks if the path has spaces in it.
+如果路径中有空格,不要忘了加引号.
 
-The full path doesn't need to be specified if the .dll file is in the same folder as the game .exe.
+如果.dll文件与game.exe位于同一文件夹中，则不需要指定完整路径.

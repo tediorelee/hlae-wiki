@@ -1,15 +1,7 @@
-# Usage
+# 用法
 
-Enter
+控制台中输入`mirv_cvar_unhide_all`隐藏所有cvars (including development cvars)
 
-<tt>mirv_cvar_unhide_all</tt>
+# 支持的游戏
 
-into console to unhide all cvars (including development cvars).
-
-# Supported games
-
-Games with VEngineCvar007 interface are supported, currently that is i.e. CS:GO. AfxHookSource prints the used interface into the console when the game is started.
-
-# See also
-
-* [[Source:Commands]]
+使用`VEngineCvar007`接口的游戏都可支持，当前为CSGO。游戏启动时AfxHookSource会在控制台打印已经使用的接口。

@@ -1,33 +1,32 @@
-This command allows to access fixes to the game that are not covered by other commands.
+该指令可修复其他指令未覆盖到的游戏问题。
 
-# mirv_fix blockObserverTarget
+# 修复下包后玩家视角切换问题
 
-For CS:GO only, fixes unwanted player switching (spec lag/spin) i.e. upon bomb plant (blocks C_BasePlayer::RecvProxy_ObserverTarget). 
+仅针对CSGO，即使锁定下包的T，下包成功的一瞬间会有玩家视角自动切换的问题，该指令修复此问题，1开启，0默认。
 
-Syntax: <tt>mirv_fix blockObserverTarget _**0**|1_</tt>
-* **0**: default, don't block
-* **1**: enable block
+```
+mirv_fix blockObserverTarget 1
+```
 
-# mirv_fix oldDuckFix
+# 修复旧demo下蹲卡住的问题
 
-For CS:GO only, can fix player stuck in duck for old demos.
+仅针对CSGO，修复远古demo中玩家下蹲卡住的问题，1开启，0默认。
 
-Syntax: <tt>mirv_fix oldDuckFix _**0**|1_</tt>
-* **0**: default, don't block (no fix)
-* **1**: enable block (fix), might need round restart
+```
+mirv_fix oldDuckFix 1
+```
 
-# mirv_fix physicsMaxFps
+# 修复最大FPS问题
 
-For CS:GO only, allows to raise / set the FPS limit for physics (i.e. rag dolls, so they don't freeze upon high host_framerate). 
+仅针对CSGO突破CSGO物理引擎的FPS限制，可以给`host_framerate`设置超高的fps值。
 
-Syntax: <tt>mirv_fix physicsMaxFps _\<fValue\>_</tt>
-* **_\<fValue\>_**: Floating point or integer value to set as new limit (CS:GO's default is 9999 at the moment).
+```
+mirv_fix physicsMaxFps <fValue>
+```
 
-# mirv_fix playerAnimState
+* fValue：整数或浮点数，CSGO默认为9999。
 
-See [[Smoother Demos|Source:Smoother Demos]]
+# 修复玩家模型动画卡顿
 
-# See also
+见[Smoother Demos](https://github.com/advancedfx/advancedfx/wiki/Source%3ASmoother-Demos)
 
-* [[Source:Commands]]
-* [[Source:mirv_snd_timescale]]
