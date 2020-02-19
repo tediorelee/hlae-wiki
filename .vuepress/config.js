@@ -62,7 +62,7 @@ module.exports = {
               ]
           },
           {
-              title: 'Command',
+              title: '指令',
               collapsable: false, // 可选的, 默认值是 true,
               children: [
                   ['Source_afx_interop.md', 'Source_afx_interop'],
@@ -96,10 +96,31 @@ module.exports = {
               ]
           },
           {
-              title: 'Tutorial',
+              title: '教程',
               collapsable: false, // 可选的, 默认值是 true,
               children: [
-                  ['Tutorials.md', '相关教程']
+                  ['Tutorials.md','教程']
+              ]
+          },
+          {
+              title: 'Purple CFG用法教程',
+              collapsable: false, // 可选的, 默认值是 true,
+              children: [
+                  ['purple_cfg.md', 'Purple CFG用法教程']
+              ]
+          },
+          {
+              title: 'EDW HLAE视频教程',
+              collapsable: false, // 可选的, 默认值是 true,
+              children: [
+                  ['edw_hlae.md', 'EDW HLAE视频教程']
+              ]
+          },
+          {
+              title: 'Purple CSGO工具箱教程',
+              collapsable: false, // 可选的, 默认值是 true,
+              children: [
+                  ['purple_csgo_toolbox.md', 'Purple CSGO工具箱教程']
               ]
           },
           {
