@@ -12,7 +12,7 @@ actionLink: /pages/home.md
 #   details: HLAE is a tool to enrich Source (mainly CS:GO) engine based movie making.
 # - title: 没想好放啥
 #   details: HLAE is a tool to enrich Source (mainly CS:GO) engine based movie making.
-# ---
+---
 
 ## 交流
 

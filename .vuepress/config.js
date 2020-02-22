@@ -39,12 +39,12 @@ module.exports = {
 
       {
         text: '论坛',
-        link: 'http://175.24.0.251:4567/'
+        link: 'https://hlae.site'
       },
 
       {
         text: 'Github',
-        link: 'https://github.com/tediorelee/hlae-wiki'
+        link: 'https://github.com/advancedfx/advancedfx'
       },
     ],
 
