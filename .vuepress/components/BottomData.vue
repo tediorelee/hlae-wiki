@@ -1,6 +1,6 @@
 <template>
   <div class="FirstBottomPage">
-    <a href="http://beian.gov.cn/portal/index.do">xICP备xxxx号-1</a> | Copyright © 2020
+    <a href="http://beian.gov.cn/portal/index.do">皖ICP备20002252号</a> | Copyright © 2020
   </div>
 </template>
 
