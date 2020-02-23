@@ -1,0 +1,76 @@
+## 创立目的
+
+我们是一群热爱CSGO和视频制作的玩家，建立此网站的目的在于给更多想入坑CSGO视频制作的新人一个入门、讨论与交流的空间，希望这个网站的内容对你有所启迪。加油，干就完了，奥利给！
+
+## 维护/运营人员
+
+创办人：[Purple](https://space.bilibili.com/73115492/)；
+
+技术支持：[TEDIORELEE](https://iidx.xyz/)
+
+## 捐赠
+
+#### 明细：
+
+当前费用：886元
+
+- 域名10年：199元
+- 云服务器1年：120元（可原价续费两次）
+- 做种NAS：258元
+- 1TB机械硬盘：289元
+
+#### 已筹资金：
+
+::: warning
+注：截至2020年2月23日
+:::
+
+`884.09`元整
+
+#### 个人捐赠：
+
+| id              | 金额（元） |
+| --------------- | ---------- |
+| TEDIORELEE      | 200        |
+| Purple          | 100        |
+| 黄鱼            | 100        |
+| 折木十七        | 100        |
+| Tuc             | 50         |
+| 软核            | 25         |
+| 正义的伙伴      | 25         |
+| ?supBixch?      | 23.33      |
+| 苏沐ALAN        | 20         |
+| 宿参            | 20         |
+| Bilibili-G4Edit | 20         |
+| JakesonLin      | 20         |
+| Crolfhym        | 20         |
+| BANA            | 11.11      |
+| TeNEz           | 10.10      |
+| Jäger           | 10         |
+| yZs-            | 80.85      |
+| 9k1ls           | 7.43       |
+| SpyRal          | 6          |
+| 咖啡奶糖        | 5.27       |
+| CSGO剁椒鱼头    | 5          |
+| White           | 5          |
+| lalavirus       | 5          |
+| 小猪            | 5          |
+| rain            | 5          |
+| 手扒鸡真吼七    | 5          |
+
+#### 支付宝捐赠：
+
+<img src="https://i.loli.net/2020/02/23/1DsnzPWodYBHeC4.jpg" alt="TIM图片20200223143231.jpg" style="zoom:20%;" />
+
+#### 微信捐赠：
+
+<img src="https://i.loli.net/2020/02/23/ZBhtYWIXRQgsTPN.png" alt="TIM图片20200223143235.png" style="zoom:20%;" />
+
+#### QQ捐赠：
+
+<img src="https://i.loli.net/2020/02/23/aJc8tyMQqnSfwdA.png" style="zoom:30%;" />
+
+::: tip
+注：捐赠请注明姓名
+:::
+

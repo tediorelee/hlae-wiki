@@ -129,6 +129,13 @@ module.exports = {
               children: [
                   ['contributer.md', '翻译人员名单']
               ]
+          },
+          {
+              title: '网站关于/捐赠',
+              collapsable: false, // 可选的, 默认值是 true,
+              children: [
+                  ['about_us.md', '网站关于/捐赠']
+              ]
           }
       ],
   }
