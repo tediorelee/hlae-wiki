@@ -35,15 +35,20 @@
 | Purple          | 100        |
 | 黄鱼            | 100        |
 | 折木十七        | 100        |
+| XUANIAN         | 100        |
+| Jonathan-ChA0s  | 60         |
 | Tuc             | 50         |
 | 软核            | 25         |
 | 正义的伙伴      | 25         |
 | ?supBixch?      | 23.33      |
+| gokexy          | 20         |
 | 苏沐ALAN        | 20         |
 | 宿参            | 20         |
 | Bilibili-G4Edit | 20         |
 | JakesonLin      | 20         |
 | Crolfhym        | 20         |
+| 老菩提的驴      | 20         |
+| NIKORANGE!      | 15         |
 | BANA            | 11.11      |
 | TeNEz           | 10.10      |
 | Jäger           | 10         |
@@ -57,6 +62,8 @@
 | 小猪            | 5          |
 | rain            | 5          |
 | 手扒鸡真吼七    | 5          |
+| Ma5onXu         | 5          |
+| 花满楼          | 5          |
 
 #### 支付宝捐赠：
 
